@@ -10,7 +10,6 @@
     --green:#173b00;
     --green-dark:#0d2500;
     --green-light:#2f650d;
-    --olive:#56633a;
     --cream:#f7f6f0;
     --white:#ffffff;
     --text:#20251d;
@@ -66,7 +65,6 @@ header{
     justify-content:space-between;
     gap:20px;
 }
-/* LOGO CIRCULAR DEL MENU */
 .brand{
     display:flex;
     align-items:center;
@@ -146,9 +144,7 @@ header{
     overflow:hidden;
     text-align:center;
     padding:
-        20px
-        20px
-        45px;
+        20px 20px 45px;
     color:white;
     background:
         radial-gradient(
@@ -178,7 +174,6 @@ header{
     box-shadow:
         inset 0 -30px 60px rgba(0,0,0,.25);
 }
-/* textura militar */
 .hero::before{
     content:"";
     position:absolute;
@@ -201,7 +196,6 @@ header{
             transparent 57px
         );
 }
-/* manchas */
 .hero::after{
     content:"";
     position:absolute;
@@ -220,14 +214,12 @@ header{
     filter:blur(25px);
     pointer-events:none;
 }
-/* CONTENIDO HERO */
 .hero-content{
     position:relative;
     z-index:2;
     max-width:1200px;
     margin:auto;
 }
-/* LOGO GRANDE */
 .hero-logo{
     display:block;
     width:min(94vw,560px);
@@ -235,32 +227,21 @@ header{
     max-height:540px;
     object-fit:contain;
     margin:
-        0 auto
-        5px;
+        0 auto 5px;
     filter:
         drop-shadow(0 20px 30px rgba(0,0,0,.40))
         drop-shadow(0 0 35px rgba(167,185,111,.12));
-    transition:transform .4s ease;
 }
-.hero-logo:hover{
-    transform:scale(1.015);
-}
-/* TITULO */
 .hero h1{
     position:relative;
     z-index:2;
     font-size:
-        clamp(
-            30px,
-            6vw,
-            58px
-        );
+        clamp(30px,6vw,58px);
     line-height:1;
     color:white;
     margin-top:0;
     margin-bottom:15px;
-    letter-spacing:
-        -1px;
+    letter-spacing:-1px;
     text-shadow:
         0 4px 15px rgba(0,0,0,.35);
 }
@@ -302,14 +283,12 @@ main{
     max-width:1200px;
     margin:auto;
     padding:
-        35px 20px
-        70px;
+        35px 20px 70px;
 }
 .shop-grid{
     display:grid;
     grid-template-columns:
-        1.05fr
-        .95fr;
+        1.05fr .95fr;
     gap:25px;
     align-items:start;
 }
@@ -321,6 +300,9 @@ main{
     box-shadow:var(--shadow);
     overflow:hidden;
 }
+/* =====================================================
+   IMAGEN CAMISETA
+===================================================== */
 .product-image{
     background:
         radial-gradient(
@@ -336,10 +318,11 @@ main{
     padding:35px;
 }
 .product-image img{
+    display:block;
+    width:100%;
     max-width:100%;
-    max-height:500px;
-    width:auto;
     height:auto;
+    max-height:500px;
     object-fit:contain;
     transition:.25s ease;
 }
@@ -426,8 +409,19 @@ textarea:focus{
         rgba(47,101,13,.10);
 }
 textarea{
-    min-height:90px;
+    min-height:110px;
     resize:vertical;
+}
+/* =====================================================
+   TEXTO AYUDA OBSERVACIONES
+===================================================== */
+.field-help{
+    display:block;
+    margin-top:7px;
+    color:#8b9187;
+    font-size:12px;
+    font-style:italic;
+    line-height:1.4;
 }
 /* =====================================================
    COLORES
@@ -532,7 +526,7 @@ textarea{
     font-weight:900;
 }
 /* =====================================================
-   BOTON AÑADIR
+   BOTON
 ===================================================== */
 .add-button{
     width:100%;
@@ -561,7 +555,7 @@ textarea{
         rgba(23,59,0,.23);
 }
 /* =====================================================
-   ENVIOS
+   ENVÍOS
 ===================================================== */
 .info-section{
     margin-top:30px;
@@ -602,101 +596,6 @@ textarea{
     font-weight:900;
     font-size:13px;
     margin-top:5px;
-}
-/* =====================================================
-   PAGO
-===================================================== */
-.payment-box{
-    background:#fff;
-    border:
-        1px solid var(--line);
-    border-radius:22px;
-    padding:25px;
-    margin-top:30px;
-    box-shadow:
-        0 8px 25px
-        rgba(0,0,0,.05);
-}
-.payment-box h2{
-    color:var(--green);
-    margin-bottom:8px;
-}
-.payment-box > p{
-    color:var(--muted);
-    margin-bottom:20px;
-}
-.payment-methods{
-    display:grid;
-    grid-template-columns:
-        1fr 1fr;
-    gap:12px;
-}
-.payment-method{
-    border:
-        1px solid var(--line);
-    border-radius:15px;
-    padding:17px;
-    background:#fafbf8;
-}
-.payment-method strong{
-    display:block;
-    margin-bottom:4px;
-}
-.payment-method span{
-    color:var(--muted);
-    font-size:13px;
-}
-.payment-important{
-    margin-top:18px;
-    background:#f2f8ed;
-    border:
-        1px solid #d5e6c9;
-    border-radius:15px;
-    padding:17px;
-    color:#28550e;
-}
-.payment-important strong{
-    display:block;
-    margin-bottom:5px;
-}
-/* =====================================================
-   PEDIDO
-===================================================== */
-.order-section{
-    margin-top:30px;
-}
-.order-section h2{
-    color:var(--green);
-    margin-bottom:15px;
-}
-.order-form{
-    background:white;
-    border:
-        1px solid var(--line);
-    border-radius:24px;
-    padding:28px;
-    box-shadow:var(--shadow);
-}
-.form-grid{
-    display:grid;
-    grid-template-columns:
-        1fr 1fr;
-    gap:15px;
-}
-.form-group{
-    margin-bottom:15px;
-}
-.form-group.full{
-    grid-column:1/-1;
-}
-.form-group label{
-    display:block;
-    font-size:13px;
-    font-weight:800;
-    margin-bottom:7px;
-}
-.required{
-    color:#b32929;
 }
 /* =====================================================
    CARRITO
@@ -758,6 +657,114 @@ textarea{
     font-weight:800;
 }
 /* =====================================================
+   FORMULARIO PEDIDO
+===================================================== */
+.order-section{
+    margin-top:30px;
+}
+.order-section h2{
+    color:var(--green);
+    margin-bottom:15px;
+}
+.order-form{
+    background:white;
+    border:
+        1px solid var(--line);
+    border-radius:24px;
+    padding:28px;
+    box-shadow:var(--shadow);
+}
+.form-grid{
+    display:grid;
+    grid-template-columns:
+        1fr 1fr;
+    gap:15px;
+}
+.form-group{
+    margin-bottom:15px;
+}
+.form-group.full{
+    grid-column:1/-1;
+}
+.form-group label{
+    display:block;
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:7px;
+}
+.required{
+    color:#b32929;
+}
+/* =====================================================
+   PAGO — AL FINAL
+===================================================== */
+.payment-box{
+    background:#fff;
+    border:
+        1px solid var(--line);
+    border-radius:22px;
+    padding:25px;
+    margin-top:35px;
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.05);
+}
+.payment-box h2{
+    color:var(--green);
+    margin-bottom:8px;
+}
+.payment-box > p{
+    color:var(--muted);
+    margin-bottom:20px;
+}
+.payment-methods{
+    display:grid;
+    grid-template-columns:
+        1fr 1fr;
+    gap:12px;
+}
+.payment-method{
+    border:
+        1px solid var(--line);
+    border-radius:15px;
+    padding:18px;
+    background:#fafbf8;
+}
+.payment-method strong{
+    display:block;
+    margin-bottom:6px;
+    color:var(--text);
+}
+.payment-method span{
+    color:var(--muted);
+    font-size:13px;
+}
+.payment-data{
+    margin-top:10px;
+    font-size:17px;
+    font-weight:900;
+    color:var(--green);
+}
+.payment-note{
+    margin-top:5px;
+    color:#8b9187;
+    font-size:11px;
+    font-style:italic;
+}
+.payment-important{
+    margin-top:18px;
+    background:#f2f8ed;
+    border:
+        1px solid #d5e6c9;
+    border-radius:15px;
+    padding:17px;
+    color:#28550e;
+}
+.payment-important strong{
+    display:block;
+    margin-bottom:5px;
+}
+/* =====================================================
    ENVIAR
 ===================================================== */
 .submit-button{
@@ -794,12 +801,10 @@ footer{
     color:var(--muted);
     font-size:13px;
     padding:
-        30px
-        20px
-        45px;
+        30px 20px 45px;
 }
 /* =====================================================
-   MOVIL
+   TABLET
 ===================================================== */
 @media(max-width:850px){
     .shop-grid{
@@ -812,10 +817,12 @@ footer{
         grid-template-columns:1fr;
     }
 }
+/* =====================================================
+   MOVIL
+===================================================== */
 @media(max-width:600px){
     .header-inner{
-        padding:
-            8px 12px;
+        padding:8px 12px;
     }
     .brand{
         gap:9px;
@@ -834,73 +841,70 @@ footer{
         font-size:9px;
     }
     .cart-button{
-        padding:
-            8px 10px;
+        padding:8px 10px;
         font-size:12px;
     }
-    /*
-       HERO MOVIL
-       El logo ocupa prácticamente
-       todo el ancho disponible.
-    */
+    /* HERO */
     .hero{
         padding:
-            8px
-            8px
-            32px;
+            8px 8px 32px;
     }
     .hero-logo{
-        width:
-            96vw;
-        max-height:
-            none;
+        width:96vw;
+        max-width:none;
+        max-height:none;
         margin:
-            -2px auto
-            3px;
-        filter:
-            drop-shadow(
-                0 15px 25px
-                rgba(0,0,0,.45)
-            );
+            -2px auto 3px;
     }
     .hero h1{
         font-size:34px;
         margin-top:3px;
     }
     .hero p{
-        padding:
-            0 15px;
+        padding:0 15px;
         font-size:14px;
     }
-    .badges{
-        padding:
-            0 10px;
-        gap:7px;
-    }
-    .badge{
-        font-size:11px;
-        padding:
-            7px 10px;
-    }
+    /* CONTENIDO */
     main{
         padding:
-            25px 14px
-            60px;
+            25px 14px 60px;
+    }
+    /* CAMISETA A TODO EL ANCHO */
+    .shop-grid > .card:first-child{
+        width:100%;
+    }
+    .product-image{
+        width:100%;
+        min-height:auto;
+        padding:0;
+        border-radius:
+            0;
+    }
+    .product-image img{
+        width:100vw;
+        max-width:100vw;
+        height:auto;
+        max-height:none;
+        object-fit:contain;
     }
     .product-content{
         padding:22px;
     }
+    /* COLORES */
     .color-grid{
         grid-template-columns:
             1fr 1fr;
     }
+    /* TALLAS */
     .size-grid{
         grid-template-columns:
             repeat(3,1fr);
     }
+    /* PAGO */
     .payment-methods{
         grid-template-columns:1fr;
     }
+    /* FORMULARIO */
     .form-grid{
         grid-template-columns:1fr;
     }
@@ -912,7 +916,7 @@ footer{
     }
 }
 /* =====================================================
-   PANTALLAS MUY PEQUEÑAS
+   MOVILES MUY PEQUEÑOS
 ===================================================== */
 @media(max-width:380px){
     .brand-text{
@@ -933,7 +937,7 @@ footer{
 </head>
 <body>
 <!-- =====================================================
-     MENU
+     CABECERA
 ===================================================== -->
 <header>
     <div class="header-inner">
@@ -1001,11 +1005,13 @@ footer{
     </div>
 </section>
 <!-- =====================================================
-     CONTENIDO
+     CONTENIDO PRINCIPAL
 ===================================================== -->
 <main>
     <div class="shop-grid">
-        <!-- PRODUCTO -->
+        <!-- =================================================
+             PRODUCTO
+        ================================================== -->
         <div class="card">
             <div class="product-image">
                 <img
@@ -1176,7 +1182,9 @@ footer{
                 </button>
             </div>
         </div>
-        <!-- RESUMEN -->
+        <!-- =================================================
+             RESUMEN
+        ================================================== -->
         <div>
             <div class="card">
                 <div class="product-content">
@@ -1195,7 +1203,7 @@ footer{
                     </div>
                 </div>
             </div>
-            <!-- ENVIOS -->
+            <!-- ENVÍOS -->
             <section class="info-section">
                 <h2>
                     🚚 Envío gratis
@@ -1234,46 +1242,6 @@ footer{
                             ✓ Envío gratis incluido
                         </div>
                     </div>
-                </div>
-            </section>
-            <!-- PAGO -->
-            <section class="payment-box">
-                <h2>
-                    💳 Forma de pago
-                </h2>
-                <p>
-                    El pago se realiza directamente mediante
-                    uno de los siguientes medios.
-                    Esta web no realiza el cobro automáticamente.
-                </p>
-                <div class="payment-methods">
-                    <div class="payment-method">
-                        <strong>
-                            📱 Bizum
-                        </strong>
-                        <span>
-                            Realiza el pago mediante Bizum
-                            según las indicaciones de tu coordinador.
-                        </span>
-                    </div>
-                    <div class="payment-method">
-                        <strong>
-                            🏦 Transferencia bancaria
-                        </strong>
-                        <span>
-                            Realiza la transferencia utilizando
-                            los datos facilitados por tu coordinador.
-                        </span>
-                    </div>
-                </div>
-                <div class="payment-important">
-                    <strong>
-                        📸 Importante: justificante de pago
-                    </strong>
-                    Una vez realizado el pago, haz una captura
-                    o foto del justificante y envíasela a tu
-                    coordinador para que pueda comprobar el pago
-                    y confirmar tu pedido.
                 </div>
             </section>
         </div>
@@ -1395,8 +1363,11 @@ footer{
                     </label>
                     <textarea
                         id="notes"
-                        placeholder="Cualquier indicación adicional sobre tu pedido..."
+                        placeholder="Escribe aquí cualquier observación sobre tu pedido..."
                     ></textarea>
+                    <span class="field-help">
+                        Añadir DNI en caso de envío a Canarias y Baleares. Es obligatorio por mensajería.
+                    </span>
                 </div>
             </div>
             <button
@@ -1415,6 +1386,57 @@ footer{
                 a tu coordinador para confirmar el pedido.
             </div>
         </form>
+    </section>
+    <!-- =================================================
+         PAGOS — AHORA AL FINAL DE TODO
+    ================================================== -->
+    <section class="payment-box">
+        <h2>
+            💳 Forma de pago
+        </h2>
+        <p>
+            El pago se realiza directamente mediante
+            uno de los siguientes medios.
+            Esta web no realiza el cobro automáticamente.
+        </p>
+        <div class="payment-methods">
+            <!-- BIZUM -->
+            <div class="payment-method">
+                <strong>
+                    📱 Bizum
+                </strong>
+                <span>
+                    Puedes realizar el pago mediante Bizum al siguiente número:
+                </span>
+                <div class="payment-data">
+                    622 867 446
+                </div>
+            </div>
+            <!-- TRANSFERENCIA -->
+            <div class="payment-method">
+                <strong>
+                    🏦 Transferencia bancaria
+                </strong>
+                <span>
+                    Realiza la transferencia utilizando los siguientes datos:
+                </span>
+                <div class="payment-data">
+                    ES12 1234 5678 9012 3456 7890
+                </div>
+                <div class="payment-note">
+                    ⚠️ Número provisional. Sustituir por la cuenta bancaria real antes de publicar la web.
+                </div>
+            </div>
+        </div>
+        <div class="payment-important">
+            <strong>
+                📸 Importante: justificante de pago
+            </strong>
+            Una vez realizado el pago, haz una captura
+            o foto del justificante y envíasela a tu
+            coordinador para que pueda comprobar el pago
+            y confirmar tu pedido.
+        </div>
     </section>
 </main>
 <!-- =====================================================
