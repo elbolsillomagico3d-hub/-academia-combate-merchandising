@@ -3,333 +3,1565 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Academia de Combate Merchandising - Camisetas Frontier">
-<title>Academia de Combate | Merchandising</title>
+<meta name="description" content="Merchandising oficial Academia de Combate - Camiseta Frontier">
+<title>Academia de Combate | Merchandising Oficial</title>
 <style>
+/* =========================================================
+   VARIABLES
+========================================================= */
 :root{
   --green:#173b00;
-  --green2:#285d08;
+  --green-dark:#0d2500;
+  --green-light:#2f650d;
   --cream:#f7f6f0;
-  --white:#fff;
-  --text:#20251d;
-  --muted:#687062;
-  --line:#dfe3d8;
+  --white:#ffffff;
+  --text:#171b15;
+  --muted:#70776c;
+  --line:#e2e5de;
+  --shadow:0 15px 45px rgba(20,35,10,.09);
+  --radius:24px;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* =========================================================
+   RESET
+========================================================= */
+*{
+  box-sizing:border-box;
+}
+html{
+  scroll-behavior:smooth;
+}
 body{
-  margin:0;background:var(--cream);color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
+  margin:0;
+  background:var(--cream);
+  color:var(--text);
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
 }
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+button{
+  -webkit-tap-highlight-color:transparent;
+}
+img{
+  max-width:100%;
+}
+/* =========================================================
+   HEADER
+========================================================= */
 header{
-  background:var(--green);color:#fff;position:sticky;top:0;z-index:20;
-  box-shadow:0 3px 14px rgba(0,0,0,.16);
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(23,59,0,.96);
+  backdrop-filter:blur(14px);
+  color:white;
+  box-shadow:0 5px 25px rgba(0,0,0,.12);
 }
 .nav{
-  max-width:1100px;margin:auto;padding:12px 18px;
-  display:flex;align-items:center;justify-content:space-between;gap:15px;
+  width:min(1180px,100%);
+  margin:auto;
+  min-height:72px;
+  padding:10px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.5px}
-.brand img{width:48px;height:48px;object-fit:cover;border-radius:50%;background:#fff}
-.brand span{font-size:15px}
-.nav a{color:#fff;text-decoration:none;font-weight:700;font-size:14px}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+}
+.brand img{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+  background:white;
+  flex-shrink:0;
+}
+.brand-text{
+  line-height:1.15;
+}
+.brand-name{
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.5px;
+}
+.brand-sub{
+  font-size:11px;
+  opacity:.7;
+  margin-top:4px;
+}
+.cart-link{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:800;
+  background:rgba(255,255,255,.1);
+  padding:10px 14px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:999px;
+  transition:.2s;
+}
+.cart-link:hover{
+  background:rgba(255,255,255,.18);
+}
+.cart-count{
+  min-width:22px;
+  height:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:white;
+  color:var(--green);
+  border-radius:50%;
+  font-size:11px;
+  font-weight:900;
+}
+/* =========================================================
+   HERO
+========================================================= */
 .hero{
-  background:linear-gradient(135deg,var(--green),#315f12);
-  color:#fff;padding:54px 18px 48px;text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(70,120,25,.55), transparent 50%),
+    linear-gradient(145deg,var(--green-dark),var(--green));
+  color:white;
+  padding:70px 20px 75px;
+  text-align:center;
 }
-.hero-inner{max-width:900px;margin:auto}
-.hero img{width:150px;height:150px;object-fit:cover;border-radius:50%;background:#fff;border:5px solid #fff;box-shadow:0 8px 25px rgba(0,0,0,.2)}
-.hero h1{margin:20px 0 8px;font-size:clamp(28px,6vw,52px);line-height:1.05}
-.hero p{margin:0 auto;max-width:700px;font-size:17px;opacity:.92}
-.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:22px}
-.badge{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);padding:9px 13px;border-radius:999px;font-size:13px}
-.container{max-width:1100px;margin:auto;padding:34px 18px}
-.section-title{text-align:center;margin:0 0 8px;font-size:30px}
-.section-sub{text-align:center;color:var(--muted);margin:0 0 25px}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:min(850px,100%);
+  margin:auto;
+}
+.hero-logo{
+  width:125px;
+  height:125px;
+  object-fit:cover;
+  border-radius:50%;
+  background:white;
+  border:5px solid white;
+  box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+.hero h1{
+  margin:24px 0 10px;
+  font-size:clamp(30px,7vw,58px);
+  line-height:1;
+  letter-spacing:-1.5px;
+}
+.hero p{
+  margin:0;
+  font-size:16px;
+  opacity:.82;
+}
+.hero-badges{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:25px;
+}
+.hero-badge{
+  padding:9px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:12px;
+  font-weight:700;
+}
+/* =========================================================
+   MAIN
+========================================================= */
+.container{
+  width:min(1180px,100%);
+  margin:auto;
+  padding:60px 20px;
+}
+.section-heading{
+  text-align:center;
+  margin-bottom:35px;
+}
+.section-heading .eyebrow{
+  color:var(--green-light);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+}
+.section-heading h2{
+  margin:7px 0;
+  font-size:clamp(28px,5vw,40px);
+  letter-spacing:-1px;
+}
+.section-heading p{
+  margin:0;
+  color:var(--muted);
+  font-size:15px;
+}
+/* =========================================================
+   PRODUCT
+========================================================= */
 .product{
-  display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:start;
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);
+  gap:35px;
+  align-items:start;
 }
-.card{
-  background:#fff;border:1px solid var(--line);border-radius:20px;
-  box-shadow:0 8px 28px rgba(20,35,10,.07);overflow:hidden;
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+.product-image-card{
+  background:white;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  border:1px solid var(--line);
 }
-.gallery img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover}
-.gallery-caption{padding:12px 16px;color:var(--muted);font-size:13px}
-.info{padding:25px}
-.kicker{color:var(--green2);font-weight:800;text-transform:uppercase;font-size:12px;letter-spacing:1.2px}
-h2{margin:7px 0 5px;font-size:32px}
-.price{font-size:31px;font-weight:900;color:var(--green);margin:8px 0 18px}
-.price small{font-size:13px;color:var(--muted);font-weight:600}
-.option-title{font-weight:800;margin:20px 0 9px}
-.colors{display:flex;flex-wrap:wrap;gap:9px}
-.color-btn,.size-btn{
-  border:1.5px solid #cbd1c5;background:#fff;border-radius:12px;
-  padding:11px 13px;cursor:pointer;font-weight:700;
+.product-image{
+  position:relative;
+  background:#eef0e9;
+  aspect-ratio:1/1;
+  overflow:hidden;
 }
-.color-btn.selected,.size-btn.selected{
-  border-color:var(--green);background:#edf3e8;box-shadow:0 0 0 2px rgba(23,59,0,.10);
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .45s ease;
 }
-.dot{display:inline-block;width:15px;height:15px;border-radius:50%;vertical-align:-3px;margin-right:7px;border:1px solid #aaa}
-.navy{background:#18263d}.black{background:#111}.olive{background:#556043}.green{background:#159447}
-.sizes{display:flex;gap:8px;flex-wrap:wrap}
-.quantity{display:flex;align-items:center;gap:12px;margin-top:22px}
-.qty-btn{width:38px;height:38px;border:1px solid #cbd1c5;background:#fff;border-radius:10px;font-size:20px;cursor:pointer}
-.qty-value{min-width:30px;text-align:center;font-weight:800}
+.product-image:hover img{
+  transform:scale(1.025);
+}
+.image-label{
+  position:absolute;
+  left:18px;
+  top:18px;
+  background:white;
+  color:var(--green);
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:900;
+  box-shadow:0 5px 18px rgba(0,0,0,.1);
+}
+.image-caption{
+  padding:14px 18px;
+  color:var(--muted);
+  font-size:12px;
+  text-align:center;
+}
+/* =========================================================
+   PRODUCT INFO
+========================================================= */
+.product-info{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+.kicker{
+  color:var(--green-light);
+  text-transform:uppercase;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+.product-title{
+  margin:7px 0 0;
+  font-size:38px;
+  letter-spacing:-1.5px;
+}
+.product-description{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+  margin:8px 0 20px;
+}
+.price{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  margin-bottom:25px;
+}
+.price-main{
+  color:var(--green);
+  font-size:32px;
+  font-weight:950;
+}
+.price-note{
+  color:var(--muted);
+  font-size:12px;
+}
+/* =========================================================
+   OPTIONS
+========================================================= */
+.option{
+  margin-top:23px;
+}
+.option-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+  font-size:13px;
+  font-weight:900;
+}
+.selected-label{
+  color:var(--muted);
+  font-weight:600;
+}
+/* COLORS */
+.colors{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+}
+.color-btn{
+  border:1px solid var(--line);
+  background:white;
+  padding:10px 12px;
+  border-radius:12px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:12px;
+  font-weight:800;
+  transition:.18s;
+}
+.color-btn:hover{
+  border-color:#aeb7a7;
+}
+.color-btn.selected{
+  border-color:var(--green);
+  background:#f0f5ec;
+  box-shadow:0 0 0 2px rgba(23,59,0,.08);
+}
+.dot{
+  width:16px;
+  height:16px;
+  display:block;
+  border-radius:50%;
+  border:1px solid rgba(0,0,0,.18);
+  flex-shrink:0;
+}
+.navy{
+  background:#18263d;
+}
+.black{
+  background:#111;
+}
+.olive{
+  background:#596347;
+}
+.sand{
+  background:#cbb99b;
+}
+/* SIZES */
+.sizes{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.size-btn{
+  min-width:49px;
+  padding:11px 14px;
+  border:1px solid var(--line);
+  background:white;
+  border-radius:11px;
+  cursor:pointer;
+  font-size:13px;
+  font-weight:900;
+  transition:.18s;
+}
+.size-btn:hover{
+  border-color:#aeb7a7;
+}
+.size-btn.selected{
+  color:white;
+  background:var(--green);
+  border-color:var(--green);
+}
+/* =========================================================
+   QUANTITY
+========================================================= */
+.quantity-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:25px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+}
+.quantity-label{
+  font-size:13px;
+  font-weight:900;
+}
+.quantity{
+  display:flex;
+  align-items:center;
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+}
+.qty-btn{
+  width:38px;
+  height:38px;
+  border:0;
+  background:white;
+  cursor:pointer;
+  font-size:19px;
+  font-weight:600;
+}
+.qty-btn:hover{
+  background:#f1f3ee;
+}
+.qty-value{
+  width:35px;
+  text-align:center;
+  font-size:14px;
+  font-weight:900;
+}
+/* =========================================================
+   ADD BUTTON
+========================================================= */
 .add{
-  width:100%;border:0;border-radius:13px;background:var(--green);color:#fff;
-  padding:15px;font-size:16px;font-weight:900;cursor:pointer;margin-top:20px;
+  width:100%;
+  margin-top:22px;
+  padding:16px;
+  border:0;
+  border-radius:14px;
+  background:var(--green);
+  color:white;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:950;
+  letter-spacing:.3px;
+  transition:.2s;
 }
-.add:hover{background:var(--green2)}
+.add:hover{
+  background:var(--green-light);
+  transform:translateY(-1px);
+  box-shadow:0 8px 20px rgba(23,59,0,.2);
+}
+.add:active{
+  transform:translateY(0);
+}
+/* =========================================================
+   SHIPPING
+========================================================= */
 .shipping{
-  margin-top:25px;background:#f0f5eb;border-radius:14px;padding:15px;
-  font-size:14px;line-height:1.55
+  margin-top:18px;
+  padding:15px;
+  background:#f5f7f1;
+  border-radius:14px;
+  color:#596053;
+  font-size:12px;
+  line-height:1.7;
 }
-.shipping strong{color:var(--green)}
-#pedido{margin-top:38px}
-.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.order-list{padding:22px}
-.order-item{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:15px}
-.order-item:last-child{border-bottom:0}
-.empty{color:var(--muted);text-align:center;padding:22px}
-.total{font-size:24px;font-weight:900;text-align:right;margin-top:15px;color:var(--green)}
-.form{padding:22px}
-.form h3{margin-top:0}
-label{display:block;font-weight:700;font-size:13px;margin:12px 0 6px}
-input,textarea,select{
-  width:100%;padding:12px;border:1px solid #cbd1c5;border-radius:10px;
-  font:inherit;background:#fff;
+.shipping-title{
+  color:var(--green);
+  font-weight:900;
+  margin-bottom:3px;
 }
-textarea{min-height:90px;resize:vertical}
-.payment{margin-top:18px}
+/* =========================================================
+   ORDER SECTION
+========================================================= */
+.order-section{
+  background:#eef1e9;
+  border-top:1px solid var(--line);
+}
+.order-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+/* =========================================================
+   CARDS
+========================================================= */
+.card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.card-header{
+  padding:22px 24px;
+  border-bottom:1px solid var(--line);
+}
+.card-header h3{
+  margin:0;
+  font-size:18px;
+}
+.card-header p{
+  margin:5px 0 0;
+  color:var(--muted);
+  font-size:12px;
+}
+.order-list{
+  padding:0 24px 24px;
+}
+.empty{
+  text-align:center;
+  padding:35px 10px;
+  color:var(--muted);
+  font-size:13px;
+}
+.order-item{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  padding:17px 0;
+  border-bottom:1px solid var(--line);
+}
+.order-item:last-child{
+  border-bottom:0;
+}
+.order-product{
+  font-weight:900;
+  font-size:13px;
+}
+.order-details{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:4px;
+  line-height:1.5;
+}
+.order-price{
+  text-align:right;
+  white-space:nowrap;
+  font-weight:900;
+  font-size:13px;
+}
+.remove{
+  display:block;
+  margin-top:5px;
+  margin-left:auto;
+  border:0;
+  background:none;
+  padding:0;
+  color:#999;
+  cursor:pointer;
+  font-size:11px;
+}
+.remove:hover{
+  color:#c33;
+}
+.total-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-top:18px;
+  border-top:1px solid var(--line);
+  font-weight:900;
+}
+.total-label{
+  font-size:14px;
+}
+.total{
+  color:var(--green);
+  font-size:25px;
+}
+/* =========================================================
+   FORM
+========================================================= */
+.form{
+  padding:24px;
+}
+.form-title{
+  margin:0 0 18px;
+  font-size:18px;
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 12px;
+}
+.field{
+  margin-bottom:12px;
+}
+.field.full{
+  grid-column:1 / -1;
+}
+label{
+  display:block;
+  margin-bottom:5px;
+  font-size:11px;
+  font-weight:900;
+  color:#454b42;
+}
+input,
+textarea{
+  width:100%;
+  border:1px solid #d7dcd3;
+  background:#fff;
+  border-radius:10px;
+  padding:11px 12px;
+  outline:none;
+  color:var(--text);
+  font-size:13px;
+  transition:.15s;
+}
+input:focus,
+textarea:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px rgba(23,59,0,.07);
+}
+textarea{
+  min-height:80px;
+  resize:vertical;
+}
+/* =========================================================
+   PAYMENT
+========================================================= */
+.payment-title{
+  margin:17px 0 8px;
+  font-size:14px;
+}
 .pay-option{
-  display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);
-  border-radius:12px;padding:12px;margin:8px 0;background:#fff;cursor:pointer
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  padding:12px;
+  margin:7px 0;
+  border:1px solid var(--line);
+  border-radius:11px;
+  cursor:pointer;
+  background:white;
 }
-.pay-option input{width:auto;margin-top:3px}
-.pay-info{background:#f6f8f2;border-radius:10px;padding:11px;font-size:13px;color:#4e5849;margin-top:8px}
+.pay-option:hover{
+  background:#fafbf8;
+}
+.pay-option input{
+  width:auto;
+  margin-top:2px;
+}
+.pay-option strong{
+  font-size:12px;
+}
+.pay-option small{
+  display:block;
+  color:var(--muted);
+  margin-top:3px;
+  font-size:10px;
+}
+.pay-info{
+  margin-top:10px;
+  padding:11px;
+  border-radius:10px;
+  background:#f6f8f2;
+  color:#5d6559;
+  font-size:10px;
+  line-height:1.5;
+}
+/* =========================================================
+   SUBMIT
+========================================================= */
 .submit{
-  width:100%;margin-top:18px;padding:15px;border:0;border-radius:12px;
-  background:var(--green);color:#fff;font-weight:900;font-size:16px;cursor:pointer
+  width:100%;
+  margin-top:18px;
+  padding:15px;
+  border:0;
+  border-radius:13px;
+  background:var(--green);
+  color:white;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:950;
+  transition:.2s;
 }
-.note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:10px}
+.submit:hover{
+  background:var(--green-light);
+}
+.note{
+  margin-top:9px;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.5;
+  text-align:center;
+}
 .success{
-  display:none;margin-top:16px;padding:15px;border-radius:12px;
-  background:#eaf6e5;color:#1c5010;font-weight:700
+  display:none;
+  margin-top:15px;
+  padding:14px;
+  border-radius:11px;
+  background:#e9f6e3;
+  color:#245c17;
+  font-size:12px;
+  line-height:1.5;
 }
-footer{background:#102800;color:#fff;margin-top:40px;padding:28px 18px;text-align:center}
-footer p{margin:6px 0;opacity:.85;font-size:13px}
-@media(max-width:800px){
-  .product,.order-grid{grid-template-columns:1fr}
-  .hero{padding-top:38px}
-  .brand span{display:none}
+/* =========================================================
+   FOOTER
+========================================================= */
+footer{
+  background:#0d2200;
+  color:white;
+  text-align:center;
+  padding:32px 20px;
+}
+footer strong{
+  font-size:13px;
+}
+footer p{
+  margin:6px 0;
+  opacity:.65;
+  font-size:11px;
+}
+/* =========================================================
+   MOBILE
+========================================================= */
+@media(max-width:850px){
+  .product{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  .product-info{
+    padding:23px;
+  }
+  .product-title{
+    font-size:32px;
+  }
+  .order-grid{
+    grid-template-columns:1fr;
+  }
+  .container{
+    padding:45px 15px;
+  }
+}
+@media(max-width:600px){
+  .nav{
+    min-height:64px;
+    padding:8px 13px;
+  }
+  .brand img{
+    width:42px;
+    height:42px;
+  }
+  .brand-sub{
+    display:none;
+  }
+  .brand-name{
+    font-size:11px;
+  }
+  .cart-link{
+    padding:9px 11px;
+    font-size:12px;
+  }
+  .hero{
+    padding:48px 16px 50px;
+  }
+  .hero-logo{
+    width:105px;
+    height:105px;
+  }
+  .hero h1{
+    font-size:34px;
+    letter-spacing:-1px;
+  }
+  .hero p{
+    font-size:14px;
+  }
+  .hero-badge{
+    font-size:10px;
+  }
+  .product-image{
+    aspect-ratio:1/1;
+  }
+  .product-info{
+    border-radius:20px;
+    padding:20px;
+  }
+  .product-title{
+    font-size:30px;
+  }
+  .price-main{
+    font-size:28px;
+  }
+  .colors{
+    gap:7px;
+  }
+  .color-btn{
+    flex:1 1 calc(50% - 7px);
+    justify-content:center;
+  }
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+  .field.full{
+    grid-column:auto;
+  }
+  .order-list,
+  .form{
+    padding-left:18px;
+    padding-right:18px;
+  }
+  .total{
+    font-size:22px;
+  }
+}
+/* =========================================================
+   SMALL ANIMATION
+========================================================= */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+.product-info,
+.product-image-card{
+  animation:fadeUp .5s ease both;
 }
 </style>
 </head>
 <body>
-
+<!-- ======================================================
+     HEADER
+====================================================== -->
 <header>
   <div class="nav">
     <div class="brand">
-      <img src="assets/logo.jpg" alt="Academia de Combate">
-      <span>ACADEMIA DE COMBATE MERCHANDISING</span>
+      <img
+        src="assets/logo.jpg"
+        alt="Academia de Combate"
+      >
+      <div class="brand-text">
+        <div class="brand-name">
+          ACADEMIA DE COMBATE
+        </div>
+        <div class="brand-sub">
+          MERCHANDISING OFICIAL
+        </div>
+      </div>
     </div>
-    <a href="#pedido">🛒 Mi pedido</a>
+    <a
+      href="#pedido"
+      class="cart-link"
+    >
+      🛒 Mi pedido
+      <span
+        class="cart-count"
+        id="cartCount"
+      >
+        0
+      </span>
+    </a>
   </div>
 </header>
-
+<!-- ======================================================
+     HERO
+====================================================== -->
 <section class="hero">
   <div class="hero-inner">
-    <img src="assets/logo.jpg" alt="Academia de Combate">
-    <h1>ACADEMIA DE COMBATE</h1>
-    <p>Merchandising oficial · Camiseta Frontier</p>
-    <div class="badges">
-      <div class="badge">🇪🇸 Península · 16,90 €</div>
-      <div class="badge">🏝️ Baleares · 21,80 €</div>
-      <div class="badge">🌴 Canarias · 22,90 €</div>
+    <img
+      class="hero-logo"
+      src="assets/logo.jpg"
+      alt="Logo Academia de Combate"
+    >
+    <h1>
+      ACADEMIA DE COMBATE
+    </h1>
+    <p>
+      Merchandising oficial · Camiseta Frontier
+    </p>
+    <div class="hero-badges">
+      <span class="hero-badge">
+        🇪🇸 Península · 16,90 €
+      </span>
+      <span class="hero-badge">
+        🏝️ Baleares · 21,80 €
+      </span>
+      <span class="hero-badge">
+        🌴 Canarias · 22,90 €
+      </span>
     </div>
   </div>
 </section>
-
+<!-- ======================================================
+     PRODUCTO
+====================================================== -->
 <main>
-  <section class="container">
-    <h2 class="section-title">Merchandising</h2>
-    <p class="section-sub">Elige color, talla y cantidad.</p>
-
-    <div class="product">
-      <div class="card gallery">
-        <img src="assets/camisetas.jpg" alt="Camisetas Frontier Academia de Combate">
-        <div class="gallery-caption">Camiseta Frontier · Diseño oficial Academia de Combate</div>
+<section class="container">
+  <div class="section-heading">
+    <div class="eyebrow">
+      MERCHANDISING OFICIAL
+    </div>
+    <h2>
+      Camiseta Frontier
+    </h2>
+    <p>
+      Elige tu color, talla y cantidad.
+    </p>
+  </div>
+  <div class="product">
+    <!-- FOTO -->
+    <div class="product-image-card">
+      <div class="product-image">
+        <span class="image-label">
+          ★ OFICIAL
+        </span>
+        <img
+          id="productImage"
+          src="assets/camisetas.jpg"
+          alt="Camiseta Frontier Academia de Combate"
+        >
       </div>
-
-      <div class="card info">
-        <div class="kicker">Camiseta oficial</div>
-        <h2>Frontier</h2>
-        <div class="price"><span id="displayPrice">16,90 €</span> <small>envío incluido · Península</small></div>
-
-        <div class="option-title">Color</div>
-        <div class="colors" id="colors">
-          <button class="color-btn selected" data-color="Azul marino"><span class="dot navy"></span>Azul marino</button>
-          <button class="color-btn" data-color="Negro"><span class="dot black"></span>Negro</button>
-          <button class="color-btn" data-color="Verde oliva / militar"><span class="dot olive"></span>Verde oliva / militar</button>
-          <button class="color-btn" data-color="Verde"><span class="dot green"></span>Verde</button>
+      <div class="image-caption">
+        Camiseta Frontier · Diseño oficial Academia de Combate
+      </div>
+    </div>
+    <!-- INFORMACIÓN -->
+    <div class="product-info">
+      <div class="kicker">
+        CAMISETA OFICIAL
+      </div>
+      <h2 class="product-title">
+        Frontier
+      </h2>
+      <p class="product-description">
+        Diseño oficial de Academia de Combate.
+        Selecciona el color, la talla y la cantidad que quieras.
+      </p>
+      <div class="price">
+        <span
+          class="price-main"
+          id="displayPrice"
+        >
+          16,90 €
+        </span>
+        <span class="price-note">
+          envío incluido · Península
+        </span>
+      </div>
+      <!-- COLOR -->
+      <div class="option">
+        <div class="option-title">
+          <span>
+            Color
+          </span>
+          <span
+            class="selected-label"
+            id="selectedColorLabel"
+          >
+            Azul marino
+          </span>
         </div>
-
-        <div class="option-title">Talla</div>
-        <div class="sizes" id="sizes">
-          <button class="size-btn selected" data-size="S">S</button>
-          <button class="size-btn" data-size="M">M</button>
-          <button class="size-btn" data-size="L">L</button>
-          <button class="size-btn" data-size="XL">XL</button>
-          <button class="size-btn" data-size="2XL">2XL</button>
+        <div class="colors">
+          <button
+            type="button"
+            class="color-btn selected"
+            data-color="Azul marino"
+          >
+            <span class="dot navy"></span>
+            Azul marino
+          </button>
+          <button
+            type="button"
+            class="color-btn"
+            data-color="Negro"
+          >
+            <span class="dot black"></span>
+            Negro
+          </button>
+          <button
+            type="button"
+            class="color-btn"
+            data-color="Verde militar"
+          >
+            <span class="dot olive"></span>
+            Verde militar
+          </button>
+          <button
+            type="button"
+            class="color-btn"
+            data-color="Arena"
+          >
+            <span class="dot sand"></span>
+            Arena
+          </button>
         </div>
-
+      </div>
+      <!-- TALLA -->
+      <div class="option">
+        <div class="option-title">
+          <span>
+            Talla
+          </span>
+          <span
+            class="selected-label"
+            id="selectedSizeLabel"
+          >
+            S
+          </span>
+        </div>
+        <div class="sizes">
+          <button
+            type="button"
+            class="size-btn selected"
+            data-size="S"
+          >
+            S
+          </button>
+          <button
+            type="button"
+            class="size-btn"
+            data-size="M"
+          >
+            M
+          </button>
+          <button
+            type="button"
+            class="size-btn"
+            data-size="L"
+          >
+            L
+          </button>
+          <button
+            type="button"
+            class="size-btn"
+            data-size="XL"
+          >
+            XL
+          </button>
+          <button
+            type="button"
+            class="size-btn"
+            data-size="2XL"
+          >
+            2XL
+          </button>
+        </div>
+      </div>
+      <!-- CANTIDAD -->
+      <div class="quantity-row">
+        <span class="quantity-label">
+          Cantidad
+        </span>
         <div class="quantity">
-          <strong>Cantidad</strong>
-          <button class="qty-btn" id="minus">−</button>
-          <span class="qty-value" id="qty">1</span>
-          <button class="qty-btn" id="plus">+</button>
-        </div>
-
-        <button class="add" id="add">AÑADIR AL PEDIDO</button>
-
-        <div class="shipping">
-          <strong>Envío incluido</strong><br>
-          Península: <b>16,90 €</b><br>
-          Baleares: <b>21,80 €</b><br>
-          Canarias: <b>22,90 €</b>
+          <button
+            type="button"
+            class="qty-btn"
+            id="minus"
+          >
+            −
+          </button>
+          <span
+            class="qty-value"
+            id="qty"
+          >
+            1
+          </span>
+          <button
+            type="button"
+            class="qty-btn"
+            id="plus"
+          >
+            +
+          </button>
         </div>
       </div>
+      <!-- BOTÓN -->
+      <button
+        type="button"
+        class="add"
+        id="add"
+      >
+        AÑADIR AL PEDIDO
+      </button>
+      <!-- ENVÍO -->
+      <div class="shipping">
+        <div class="shipping-title">
+          ✓ Envío incluido
+        </div>
+        Península: <b>16,90 €</b> ·
+        Baleares: <b>21,80 €</b> ·
+        Canarias: <b>22,90 €</b>
+      </div>
     </div>
-  </section>
-
-  <section class="container" id="pedido">
-    <h2 class="section-title">Finalizar pedido</h2>
-    <p class="section-sub">Revisa el pedido y deja tus datos de envío.</p>
-
+  </div>
+</section>
+<!-- ======================================================
+     PEDIDO
+====================================================== -->
+<section
+  class="order-section"
+  id="pedido"
+>
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">
+        TU COMPRA
+      </div>
+      <h2>
+        Finalizar pedido
+      </h2>
+      <p>
+        Revisa tu pedido y completa tus datos.
+      </p>
+    </div>
     <div class="order-grid">
-      <div class="card order-list">
-        <h3>🛒 Tu pedido</h3>
-        <div id="orderItems"><div class="empty">Todavía no has añadido ninguna camiseta.</div></div>
-        <div class="total" id="total">Total: 0,00 €</div>
-      </div>
-
-      <div class="card form">
-        <h3>📦 Datos de envío</h3>
-        <form id="orderForm">
-          <label for="name">Nombre y apellidos *</label>
-          <input id="name" required>
-
-          <label for="phone">Teléfono *</label>
-          <input id="phone" type="tel" required>
-
-          <label for="email">Email *</label>
-          <input id="email" type="email" required>
-
-          <label for="address">Dirección completa *</label>
-          <input id="address" required>
-
-          <label for="cp">Código postal *</label>
-          <input id="cp" inputmode="numeric" required>
-
-          <label for="city">Localidad *</label>
-          <input id="city" required>
-
-          <label for="province">Provincia *</label>
-          <input id="province" required>
-
-          <label for="notes">Observaciones</label>
-          <textarea id="notes" placeholder="Cualquier indicación para el pedido..."></textarea>
-
-          <div class="payment">
-            <h3>💳 Forma de pago</h3>
-
-            <label class="pay-option">
-              <input type="radio" name="payment" value="Bizum" required>
-              <span><b>Bizum</b><br><small>Bizum de prueba: <b>600 123 456</b></small></span>
-            </label>
-
-            <label class="pay-option">
-              <input type="radio" name="payment" value="Transferencia" required>
-              <span><b>Transferencia bancaria</b><br><small>IBAN de prueba: <b>ES00 0000 0000 00 0000000000</b></small></span>
-            </label>
-
-            <div class="pay-info">
-              🧪 <b>DATOS FICTICIOS PARA PRUEBA</b><br>Estos datos no son reales y deberán sustituirse antes de publicar la tienda.
-            </div>
+      <!-- PEDIDO -->
+      <div class="card">
+        <div class="card-header">
+          <h3>
+            🛒 Tu pedido
+          </h3>
+          <p>
+            Productos seleccionados
+          </p>
+        </div>
+        <div
+          class="order-list"
+          id="orderItems"
+        >
+          <div class="empty">
+            Todavía no has añadido ninguna camiseta.
           </div>
-
-          <button class="submit" type="submit">CONFIRMAR PEDIDO</button>
-          <div class="note">Al confirmar, esta versión prepara el resumen del pedido. En el siguiente paso podemos conectarlo para que el pedido te llegue automáticamente a Firebase, Google Sheets, email o WhatsApp.</div>
-          <div class="success" id="success"></div>
-        </form>
+        </div>
+      </div>
+      <!-- FORMULARIO -->
+      <div class="card">
+        <div class="form">
+          <h3 class="form-title">
+            📦 Datos de envío
+          </h3>
+          <form id="orderForm">
+            <div class="form-grid">
+              <div class="field full">
+                <label for="name">
+                  NOMBRE Y APELLIDOS *
+                </label>
+                <input
+                  id="name"
+                  required
+                  autocomplete="name"
+                >
+              </div>
+              <div class="field">
+                <label for="phone">
+                  TELÉFONO *
+                </label>
+                <input
+                  id="phone"
+                  type="tel"
+                  required
+                  autocomplete="tel"
+                >
+              </div>
+              <div class="field">
+                <label for="email">
+                  EMAIL *
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  required
+                  autocomplete="email"
+                >
+              </div>
+              <div class="field full">
+                <label for="address">
+                  DIRECCIÓN *
+                </label>
+                <input
+                  id="address"
+                  required
+                  autocomplete="street-address"
+                >
+              </div>
+              <div class="field">
+                <label for="cp">
+                  CÓDIGO POSTAL *
+                </label>
+                <input
+                  id="cp"
+                  inputmode="numeric"
+                  required
+                  autocomplete="postal-code"
+                >
+              </div>
+              <div class="field">
+                <label for="city">
+                  LOCALIDAD *
+                </label>
+                <input
+                  id="city"
+                  required
+                  autocomplete="address-level2"
+                >
+              </div>
+              <div class="field full">
+                <label for="province">
+                  PROVINCIA *
+                </label>
+                <input
+                  id="province"
+                  required
+                  autocomplete="address-level1"
+                >
+              </div>
+              <div class="field full">
+                <label for="notes">
+                  OBSERVACIONES
+                </label>
+                <textarea
+                  id="notes"
+                  placeholder="Alguna indicación para tu pedido..."
+                ></textarea>
+              </div>
+            </div>
+            <!-- PAGO -->
+            <h3 class="payment-title">
+              💳 Forma de pago
+            </h3>
+            <label class="pay-option">
+              <input
+                type="radio"
+                name="payment"
+                value="Bizum"
+                required
+              >
+              <span>
+                <strong>
+                  Bizum
+                </strong>
+                <small>
+                  Bizum de prueba: 600 123 456
+                </small>
+              </span>
+            </label>
+            <label class="pay-option">
+              <input
+                type="radio"
+                name="payment"
+                value="Transferencia"
+                required
+              >
+              <span>
+                <strong>
+                  Transferencia bancaria
+                </strong>
+                <small>
+                  IBAN de prueba: ES00 0000 0000 00 0000000000
+                </small>
+              </span>
+            </label>
+            <div class="pay-info">
+              🧪 <b>DATOS FICTICIOS PARA PRUEBA</b><br>
+              Estos datos deberán sustituirse antes de publicar
+              la tienda.
+            </div>
+            <button
+              type="submit"
+              class="submit"
+            >
+              CONFIRMAR PEDIDO
+            </button>
+            <div class="note">
+              Actualmente el pedido se prepara localmente.
+              Posteriormente podemos conectarlo directamente
+              con Firebase.
+            </div>
+            <div
+              class="success"
+              id="success"
+            ></div>
+          </form>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 </main>
-
+<!-- ======================================================
+     FOOTER
+====================================================== -->
 <footer>
-  <p><b>ACADEMIA DE COMBATE MERCHANDISING</b></p>
-  <p>Camiseta Frontier · Envío incluido</p>
+  <strong>
+    ACADEMIA DE COMBATE
+  </strong>
+  <p>
+    Merchandising oficial · Camiseta Frontier
+  </p>
+  <p>
+    © 2026 Academia de Combate
+  </p>
 </footer>
-
 <script>
-const shippingPrices = { Peninsula: 16.90, Baleares: 21.80, Canarias: 22.90 };
+/* =========================================================
+   CONFIGURACIÓN
+========================================================= */
+const PRODUCT_PRICE = 16.90;
+const shippingPrices = {
+  Peninsula: 16.90,
+  Baleares: 21.80,
+  Canarias: 22.90
+};
+/* =========================================================
+   ESTADO
+========================================================= */
 let selectedColor = "Azul marino";
 let selectedSize = "S";
 let qty = 1;
 let cart = [];
-
-document.querySelectorAll(".color-btn").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    document.querySelectorAll(".color-btn").forEach(b=>b.classList.remove("selected"));
-    btn.classList.add("selected");
-    selectedColor = btn.dataset.color;
+/* =========================================================
+   ELEMENTOS
+========================================================= */
+const qtyElement =
+  document.getElementById("qty");
+const colorLabel =
+  document.getElementById("selectedColorLabel");
+const sizeLabel =
+  document.getElementById("selectedSizeLabel");
+const cartCount =
+  document.getElementById("cartCount");
+const productImage =
+  document.getElementById("productImage");
+/* =========================================================
+   COLORES
+========================================================= */
+document
+  .querySelectorAll(".color-btn")
+  .forEach(button => {
+    button.addEventListener("click", () => {
+      document
+        .querySelectorAll(".color-btn")
+        .forEach(btn => {
+          btn.classList.remove("selected");
+        });
+      button.classList.add("selected");
+      selectedColor =
+        button.dataset.color;
+      colorLabel.textContent =
+        selectedColor;
+    });
   });
-});
-document.querySelectorAll(".size-btn").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    document.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("selected"));
-    btn.classList.add("selected");
-    selectedSize = btn.dataset.size;
+/* =========================================================
+   TALLAS
+========================================================= */
+document
+  .querySelectorAll(".size-btn")
+  .forEach(button => {
+    button.addEventListener("click", () => {
+      document
+        .querySelectorAll(".size-btn")
+        .forEach(btn => {
+          btn.classList.remove("selected");
+        });
+      button.classList.add("selected");
+      selectedSize =
+        button.dataset.size;
+      sizeLabel.textContent =
+        selectedSize;
+    });
   });
-});
-document.getElementById("minus").onclick=()=>{qty=Math.max(1,qty-1);document.getElementById("qty").textContent=qty};
-document.getElementById("plus").onclick=()=>{qty++;document.getElementById("qty").textContent=qty};
-
-document.getElementById("add").onclick=()=>{
-  cart.push({product:"Camiseta Frontier",color:selectedColor,size:selectedSize,qty});
-  renderCart();
-  document.getElementById("pedido").scrollIntoView({behavior:"smooth"});
-};
-
+/* =========================================================
+   CANTIDAD
+========================================================= */
+document
+  .getElementById("minus")
+  .addEventListener("click", () => {
+    qty = Math.max(1, qty - 1);
+    qtyElement.textContent = qty;
+  });
+document
+  .getElementById("plus")
+  .addEventListener("click", () => {
+    qty++;
+    qtyElement.textContent = qty;
+  });
+/* =========================================================
+   AÑADIR AL CARRITO
+========================================================= */
+document
+  .getElementById("add")
+  .addEventListener("click", () => {
+    cart.push({
+      product:"Camiseta Frontier",
+      color:selectedColor,
+      size:selectedSize,
+      qty:qty,
+      price:PRODUCT_PRICE
+    });
+    renderCart();
+    document
+      .getElementById("pedido")
+      .scrollIntoView({
+        behavior:"smooth"
+      });
+  });
+/* =========================================================
+   RENDER CARRITO
+========================================================= */
 function renderCart(){
-  const box=document.getElementById("orderItems");
-  if(!cart.length){box.innerHTML='<div class="empty">Todavía no has añadido ninguna camiseta.</div>';document.getElementById("total").textContent="Total: 0,00 €";return;}
-  box.innerHTML=cart.map((x,i)=>`
-    <div class="order-item">
-      <div><b>${x.product}</b><br><small>${x.color} · Talla ${x.size} · x${x.qty}</small></div>
-      <div><b>${(16.90*x.qty).toFixed(2).replace(".",",")} €</b><br>
-      <button type="button" onclick="removeItem(${i})" style="border:0;background:none;color:#777;cursor:pointer">Eliminar</button></div>
-    </div>`).join("");
-  const total=cart.reduce((s,x)=>s+16.90*x.qty,0);
-  document.getElementById("total").textContent="Total: "+total.toFixed(2).replace(".",",")+" €";
+  const box =
+    document.getElementById("orderItems");
+  if(!cart.length){
+    box.innerHTML = `
+      <div class="empty">
+        Todavía no has añadido ninguna camiseta.
+      </div>
+    `;
+    cartCount.textContent = "0";
+    return;
+  }
+  let totalItems = 0;
+  let total = 0;
+  box.innerHTML = cart.map((item,index) => {
+    totalItems += item.qty;
+    total +=
+      item.price * item.qty;
+    return `
+      <div class="order-item">
+        <div>
+          <div class="order-product">
+            ${item.product}
+          </div>
+          <div class="order-details">
+            ${item.color}
+            · Talla ${item.size}
+            · Cantidad ${item.qty}
+          </div>
+        </div>
+        <div class="order-price">
+          ${(item.price * item.qty)
+            .toFixed(2)
+            .replace(".",",")} €
+          <button
+            type="button"
+            class="remove"
+            onclick="removeItem(${index})"
+          >
+            Eliminar
+          </button>
+        </div>
+      </div>
+    `;
+  }).join("");
+  box.innerHTML += `
+    <div class="total-row">
+      <span class="total-label">
+        Total
+      </span>
+      <span class="total">
+        ${total.toFixed(2).replace(".",",")} €
+      </span>
+    </div>
+  `;
+  cartCount.textContent =
+    totalItems;
 }
-function removeItem(i){cart.splice(i,1);renderCart()}
-
-document.getElementById("orderForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  if(!cart.length){alert("Añade al menos una camiseta al pedido.");return;}
-  const payment=document.querySelector('input[name="payment"]:checked').value;
-  const total=cart.reduce((s,x)=>s+16.90*x.qty,0);
-  const ref="AC-"+Date.now().toString().slice(-6);
-  const summary=cart.map(x=>`${x.product} | ${x.color} | ${x.size} | x${x.qty}`).join("\n");
-  const data=`PEDIDO ${ref}\n\n${summary}\n\nTOTAL: ${total.toFixed(2)} €\nPAGO: ${payment}\n\nCLIENTE: ${document.getElementById("name").value}\nTEL: ${document.getElementById("phone").value}\nEMAIL: ${document.getElementById("email").value}\nDIRECCIÓN: ${document.getElementById("address").value}\nCP: ${document.getElementById("cp").value}\nLOCALIDAD: ${document.getElementById("city").value}\nPROVINCIA: ${document.getElementById("province").value}\nOBSERVACIONES: ${document.getElementById("notes").value}`;
-  const success=document.getElementById("success");
-  success.style.display="block";
-  success.innerHTML=`Pedido <b>${ref}</b> preparado correctamente.<br><br><small>En la versión final conectaremos este botón para guardar el pedido automáticamente.</small>`;
-  console.log(data);
-  window.scrollTo({top:document.getElementById("success").getBoundingClientRect().top+window.scrollY-100,behavior:"smooth"});
-});
+/* =========================================================
+   ELIMINAR PRODUCTO
+========================================================= */
+function removeItem(index){
+  cart.splice(index,1);
+  renderCart();
+}
+/* =========================================================
+   FORMULARIO
+========================================================= */
+document
+  .getElementById("orderForm")
+  .addEventListener("submit", event => {
+    event.preventDefault();
+    if(!cart.length){
+      alert(
+        "Añade al menos una camiseta al pedido."
+      );
+      return;
+    }
+    const payment =
+      document.querySelector(
+        'input[name="payment"]:checked'
+      ).value;
+    const total =
+      cart.reduce(
+        (sum,item) =>
+          sum + item.price * item.qty,
+        0
+      );
+    const reference =
+      "AC-" +
+      Date.now()
+        .toString()
+        .slice(-6);
+    const summary =
+      cart
+        .map(item =>
+          `${item.product} | ${item.color} | Talla ${item.size} | x${item.qty}`
+        )
+        .join("\n");
+    const data = `
+PEDIDO ${reference}
+${summary}
+TOTAL: ${total.toFixed(2)} €
+PAGO: ${payment}
+CLIENTE:
+${document.getElementById("name").value}
+TELÉFONO:
+${document.getElementById("phone").value}
+EMAIL:
+${document.getElementById("email").value}
+DIRECCIÓN:
+${document.getElementById("address").value}
+CÓDIGO POSTAL:
+${document.getElementById("cp").value}
+LOCALIDAD:
+${document.getElementById("city").value}
+PROVINCIA:
+${document.getElementById("province").value}
+OBSERVACIONES:
+${document.getElementById("notes").value}
+`;
+    console.log(data);
+    const success =
+      document.getElementById("success");
+    success.style.display =
+      "block";
+    success.innerHTML = `
+      ✓ Pedido <b>${reference}</b>
+      preparado correctamente.
+      <br><br>
+      <small>
+        En la versión final conectaremos este botón
+        con Firebase para guardar y gestionar
+        automáticamente el pedido.
+      </small>
+    `;
+    success.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+  });
+/* =========================================================
+   INICIALIZACIÓN
+========================================================= */
+renderCart();
 </script>
 </body>
 </html>
