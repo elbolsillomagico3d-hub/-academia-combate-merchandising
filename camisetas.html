@@ -339,7 +339,7 @@ header nav a:hover, header .category-nav a:hover{
 <main>
 <div class="shop-grid"><div class="card"><div class="product-image" onclick="openZoom()"><img id="productImage" src="./assets/camisetas.png" alt="Camiseta Frontier" onerror="this.parentElement.innerHTML='<p>Foto pendiente: ./assets/camisetas.png</p>'"></div></div>
 <div class="card"><div class="product-content"><h2>Camiseta Frontier</h2><p class="product-description">Camisetas oficiales de la Academia de Combate.</p>
-<div class="price-box"><div class="price-label">Precio</div><div class="price">20,90 €</div>
+<div class="price-box"><div class="price-label">Precio de prueba · Península</div><div class="price">20,90 €</div>
 <div class="section-title">Color / acabado</div><div class="color-grid"><button class="color-btn active" onclick="chooseVariant(this,0)">Azul marino</button><button class="color-btn" onclick="chooseVariant(this,1)">Negro</button><button class="color-btn" onclick="chooseVariant(this,2)">Verde militar</button><button class="color-btn" onclick="chooseVariant(this,3)">Arena</button></div>
 <div class="section-title">Talla / formato</div><div class="size-grid"><button class="size-btn active" onclick="chooseSize(this)">S</button><button class="size-btn" onclick="chooseSize(this)">M</button><button class="size-btn" onclick="chooseSize(this)">L</button><button class="size-btn" onclick="chooseSize(this)">XL</button><button class="size-btn" onclick="chooseSize(this)">XXL</button></div>
 <div class="section-title">Cantidad</div><div class="quantity"><button onclick="changeQty(-1)">−</button><span id="qty">1</span><button onclick="changeQty(1)">+</button></div>
@@ -352,16 +352,9 @@ header nav a:hover, header .category-nav a:hover{
 <div class="form-group"><label>Nombre y apellidos *</label><input required></div><div class="form-group"><label>Teléfono *</label><input type="tel" required></div>
 <div class="form-group"><label>Email *</label><input type="email" required></div><div class="form-group"><label>Código postal *</label><input required></div>
 <div class="form-group"><label>Ciudad *</label><input required></div><div class="form-group"><label>Dirección *</label><input required></div>
-<div class="form-group full"><label>Observaciones / Comentarios del pedido</label><div class="dni-notice">⚠️ Para envíos a Baleares y Canarias es necesario indicar el <strong>DNI</strong> en las observaciones, ya que lo exige la mensajería.</div><textarea placeholder="Indica aquí cualquier detalle del pedido..."></textarea></div></div>
+<div class="form-group full"><label>Observaciones</label><textarea placeholder="Indica aquí cualquier detalle del pedido."></textarea></div></div>
 <button class="submit-button" type="submit">Enviar pedido</button><div class="success" id="success">Pedido preparado correctamente. En la versión definitiva añadiremos el proceso de pago y confirmación.</div></form></section>
-<div class="payment-box"><h2>Pago</h2>
-<p><strong>Importante:</strong> esta página web <strong>no realiza cobros</strong>. El pago del pedido se realiza mediante Bizum o transferencia bancaria con los datos indicados a continuación.</p>
-<div class="payment-methods">
-<div class="payment-method"><strong>📱 Bizum</strong><span>Número de Bizum:</span><div class="payment-data">622867446</div></div>
-<div class="payment-method"><strong>🏦 Transferencia bancaria</strong><span>IBAN:</span><div class="payment-data">ES4915830001139074829493</div><div class="payment-note">Beneficiario: <strong>Bolsillo Mágico</strong><br>Concepto: <strong>Tu nombre con apellido</strong></div></div>
-</div>
-<div class="payment-important"><strong>📸 Muy importante: justificante de pago</strong><br>Una vez realizado el pago, envía el justificante (captura o foto) al número de Bizum <strong>622867446</strong> para poder comprobar el pago y realizar/confirmar el pedido.</div>
-</div>
+<div class="payment-box"><h2>Pago</h2><p>Datos provisionales para la versión de prueba.</p><div class="payment-methods"><div class="payment-method"><strong>📱 Bizum</strong><span>Número provisional</span><div class="payment-data">[TU NÚMERO BIZUM]</div></div><div class="payment-method"><strong>🏦 Transferencia</strong><span>Cuenta provisional</span><div class="payment-data">[TU IBAN]</div></div></div><div class="payment-important"><strong>Importante</strong> En la versión definitiva sustituiremos estos datos por los reales.</div></div>
 </main><footer>© Academia de Combate · Merchandising Oficial</footer>
 <div class="zoom" id="zoom" onclick="closeZoom()"><button onclick="closeZoom()">×</button><img id="zoomImage" src="" alt=""></div>
 <script>
@@ -382,45 +375,3 @@ function closeZoom(){document.getElementById("zoom").classList.remove("active")}
 function submitOrder(e){e.preventDefault();if(!getCart().length){alert("Añade al menos un producto al carrito.");return}document.getElementById("success").style.display="block"}
 renderCart();
 </script></body></html>
-
-.dni-notice{margin:0 0 10px;background:#fff8e6;border:1px solid #ead9a6;color:#6a5415;border-radius:13px;padding:12px 14px;font-size:13px;line-height:1.45;font-weight:600}
-
-/* Ajuste final: cabecera y barra de navegación iguales al index */
-header{
-    background:linear-gradient(135deg,#102900 0%,#234c08 45%,#122b02 100%) !important;
-    color:white !important;
-    border-bottom:1px solid rgba(255,255,255,.08) !important;
-    box-shadow:0 5px 25px rgba(0,0,0,.18) !important;
-}
-header nav{
-    background:#102900 !important;
-    border-top:1px solid rgba(255,255,255,.08) !important;
-}
-header .nav-inner{
-    max-width:1200px !important;
-    margin:auto !important;
-    padding:0 !important;
-    display:flex !important;
-    justify-content:center !important;
-    align-items:stretch !important;
-    flex-wrap:wrap !important;
-    gap:0 !important;
-    overflow:visible !important;
-    background:transparent !important;
-}
-header .nav-inner a{
-    color:white !important;
-    text-decoration:none !important;
-    padding:12px 18px !important;
-    font-size:14px !important;
-    font-weight:700 !important;
-    border:0 !important;
-    border-radius:0 !important;
-    opacity:1 !important;
-    background:transparent !important;
-}
-header .nav-inner a:hover{background:#2f650d !important}
-@media(max-width:700px){
-    header .nav-inner{justify-content:flex-start !important;overflow-x:auto !important;flex-wrap:nowrap !important}
-    header .nav-inner a{padding:11px 14px !important;font-size:13px !important}
-}

@@ -1118,7 +1118,35 @@ header nav a:hover, header .category-nav a:hover{
       </div>
 
     </article>
-<section
+
+
+    <section class="shipping-section">
+
+      <h2>Envíos</h2>
+
+      <div class="shipping-grid">
+
+        <div class="shipping-card">
+          <strong>Península</strong>
+          <span>12,90 € + gastos de envío según pedido.</span>
+        </div>
+
+        <div class="shipping-card">
+          <strong>Baleares</strong>
+          <span>16,90 € + gastos de envío según pedido.</span>
+        </div>
+
+        <div class="shipping-card">
+          <strong>Canarias</strong>
+          <span>17,90 € + gastos de envío según pedido.</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section
       class="order-section"
       id="pedido"
     >
@@ -1194,25 +1222,41 @@ header nav a:hover, header .category-nav a:hover{
             ></textarea>
           </div>
 
-          <div class="dni-notice">⚠️ Para envíos a Baleares y Canarias es necesario indicar el <strong>DNI</strong> en las observaciones, ya que lo exige la mensajería.</div>
-
         </div>
 
 
         <div class="notice">
           Los precios mostrados actualmente son precios de prueba.
-          El IVA está incluido. Los el envío es gratuito y el IVA está incluido.
+          El IVA está incluido. Los gastos de envío se confirmarán
+          según el destino y el pedido.
         </div>
 
 
-        <div class="payment-box"><h2>Pago</h2>
-<p><strong>Importante:</strong> esta página web <strong>no realiza cobros</strong>. El pago del pedido se realiza mediante Bizum o transferencia bancaria con los datos indicados a continuación.</p>
-<div class="payment-methods">
-<div class="payment-method"><strong>📱 Bizum</strong><span>Número de Bizum:</span><div class="payment-data">622867446</div></div>
-<div class="payment-method"><strong>🏦 Transferencia bancaria</strong><span>IBAN:</span><div class="payment-data">ES4915830001139074829493</div><div class="payment-note">Beneficiario: <strong>Bolsillo Mágico</strong><br>Concepto: <strong>Tu nombre con apellido</strong></div></div>
-</div>
-<div class="payment-important"><strong>📸 Muy importante: justificante de pago</strong><br>Una vez realizado el pago, envía el justificante (captura o foto) al número de Bizum <strong>622867446</strong> para poder comprobar el pago y realizar/confirmar el pedido.</div>
-</div>
+        <div class="payment-box">
+
+          <h3>Forma de pago</h3>
+
+          <div class="payment-method">
+            <strong>Bizum</strong>
+            <span>
+              Número de Bizum: <strong>[TU NÚMERO BIZUM]</strong>
+            </span>
+          </div>
+
+          <div class="payment-method">
+            <strong>Transferencia bancaria</strong>
+            <span>
+              IBAN: <strong>[TU IBAN]</strong>
+            </span>
+          </div>
+
+          <div class="notice">
+            Una vez realizado el pedido, realiza el pago mediante
+            Bizum o transferencia y envía el justificante al
+            coordinador de la Academia.
+          </div>
+
+        </div>
 
 
         <button
@@ -1705,46 +1749,3 @@ header nav a:hover, header .category-nav a:hover{
 
 </body>
 </html>
-
-
-.dni-notice{margin:0 0 10px;background:#fff8e6;border:1px solid #ead9a6;color:#6a5415;border-radius:13px;padding:12px 14px;font-size:13px;line-height:1.45;font-weight:600}
-
-/* Ajuste final: cabecera y barra de navegación iguales al index */
-header{
-    background:linear-gradient(135deg,#102900 0%,#234c08 45%,#122b02 100%) !important;
-    color:white !important;
-    border-bottom:1px solid rgba(255,255,255,.08) !important;
-    box-shadow:0 5px 25px rgba(0,0,0,.18) !important;
-}
-header nav{
-    background:#102900 !important;
-    border-top:1px solid rgba(255,255,255,.08) !important;
-}
-header .nav-inner{
-    max-width:1200px !important;
-    margin:auto !important;
-    padding:0 !important;
-    display:flex !important;
-    justify-content:center !important;
-    align-items:stretch !important;
-    flex-wrap:wrap !important;
-    gap:0 !important;
-    overflow:visible !important;
-    background:transparent !important;
-}
-header .nav-inner a{
-    color:white !important;
-    text-decoration:none !important;
-    padding:12px 18px !important;
-    font-size:14px !important;
-    font-weight:700 !important;
-    border:0 !important;
-    border-radius:0 !important;
-    opacity:1 !important;
-    background:transparent !important;
-}
-header .nav-inner a:hover{background:#2f650d !important}
-@media(max-width:700px){
-    header .nav-inner{justify-content:flex-start !important;overflow-x:auto !important;flex-wrap:nowrap !important}
-    header .nav-inner a{padding:11px 14px !important;font-size:13px !important}
-}
