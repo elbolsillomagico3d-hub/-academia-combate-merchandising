@@ -123,17 +123,23 @@ nav{
     padding:45px 18px 50px;
 }
 .hero-content{
-    max-width:850px;
+    width:100%;
+    max-width:none;
     margin:auto;
 }
 .hero-logo{
-    width:125px;
-    height:125px;
+    display:block;
+    width:96vw;
+    max-width:none;
+    height:auto;
     object-fit:contain;
-    background:white;
-    border-radius:50%;
-    padding:8px;
-    margin-bottom:18px;
+    background:transparent;
+    border-radius:0;
+    padding:0;
+    margin:-2px auto 10px;
+    filter:
+        drop-shadow(0 20px 30px rgba(0,0,0,.40))
+        drop-shadow(0 0 35px rgba(167,185,111,.12));
 }
 .hero h1{
     margin:0;
@@ -277,8 +283,8 @@ footer{
         padding:32px 14px 38px;
     }
     .hero-logo{
-        width:105px;
-        height:105px;
+        width:96vw;
+        max-width:none;
     }
     .grid{
         grid-template-columns:1fr 1fr;
