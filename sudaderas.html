@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Sudaderas oficiales de la Academia de Combate.">
+<title>SUDADERAS | Academia de Combate</title>
+<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+
+<style>
+:root{
+  --green:#173b00;--green-dark:#0d2500;--green-light:#2f650d;
+  --cream:#f7f6f0;--white:#fff;--text:#20251d;--muted:#687062;
+  --line:#dfe3d8;--shadow:0 18px 45px rgba(20,40,10,.12)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--text);line-height:1.5}
+button,input,select,textarea{font:inherit}
+
+/* CABECERA IGUAL AL INDEX */
+header{
+  position:sticky;top:0;z-index:1000;
+  background:linear-gradient(135deg,#102900 0%,#234c08 45%,#122b02 100%);
+  color:white;box-shadow:0 5px 25px rgba(0,0,0,.18);
+  border-bottom:1px solid rgba(255,255,255,.08)
+}
+.header-inner{
+  max-width:1200px;margin:auto;padding:10px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:white}
+.brand-logo{
+  width:58px;height:58px;border-radius:50%;overflow:hidden;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 5px 18px rgba(0,0,0,.25)
+}
+.brand-logo img{width:100%;height:100%;object-fit:cover}
+.brand-text{display:block}
+.brand-text strong{display:block;font-size:16px;letter-spacing:.4px}
+.brand-text span{display:block;font-size:11px;opacity:.72}
+.cart-button{
+  margin-left:auto;border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);color:white;border-radius:14px;
+  padding:11px 16px;cursor:pointer;font-weight:700;white-space:nowrap
+}
+.cart-count{
+  display:inline-flex;min-width:23px;height:23px;align-items:center;
+  justify-content:center;background:white;color:var(--green);
+  border-radius:50px;margin-left:5px
+}
+header nav{background:#102900;border-top:1px solid rgba(255,255,255,.08)}
+.nav-inner{
+  max-width:1200px;margin:auto;padding:0;
+  display:flex;justify-content:center;align-items:stretch;
+  flex-wrap:wrap;gap:0;overflow:visible
+}
+.nav-inner a{
+  color:white;text-decoration:none;padding:12px 18px;font-size:14px;
+  font-weight:700;border:0;border-radius:0;background:transparent;transition:.2s
+}
+.nav-inner a:hover{background:#2f650d}
+
+/* PORTADA */
+/* PORTADA */
+.hero{
+  position:relative;overflow:hidden;text-align:center;color:white;
+  padding:70px 24px 75px;
+  background:linear-gradient(135deg,#2f650d 0%,#173b00 55%,#0d2500 100%);
+}
+.hero-content{max-width:1050px;margin:auto}
+.hero::before{
+  content:"MERCHANDISING OFICIAL";display:inline-flex;align-items:center;
+  justify-content:center;padding:10px 20px;border-radius:999px;
+  background:rgba(255,255,255,.14);color:white;font-size:18px;font-weight:900;
+  letter-spacing:1.5px;margin-bottom:22px;border:1px solid rgba(255,255,255,.18)
+}
+.hero h1{
+  color:white;font-size:clamp(40px,5.5vw,64px);
+  line-height:1;margin:0 0 20px;letter-spacing:-2px
+}
+.hero p{max-width:900px;margin:0 auto;color:rgba(255,255,255,.86);font-size:22px;line-height:1.45}
+.badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
+.badge{
+  border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1);color:white;
+  border-radius:999px;padding:10px 16px;font-size:15px;font-weight:800
+}
+
+/* TIENDA */
+main{max-width:1200px;margin:auto;padding:35px 20px 70px}
+.shop-grid{display:block}
+.product-block{
+  margin-bottom:55px;padding:30px;
+  background:#f1f4ed;border:1px solid var(--line);border-radius:30px
+}
+.product-block-title{text-align:center;margin-bottom:25px}
+.product-block-title span{
+  display:inline-block;padding:7px 13px;border-radius:999px;
+  background:#dfead8;color:var(--green);font-size:12px;
+  font-weight:900;letter-spacing:1px;margin-bottom:8px
+}
+.product-block-title h2{color:var(--green);font-size:34px;margin-bottom:5px}
+.product-block-title p{color:var(--muted)}
+.product-layout{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:25px;align-items:start
+}
+.card{
+  background:white;border:1px solid var(--line);border-radius:26px;
+  box-shadow:var(--shadow);overflow:hidden
+}
+
+/* CARRUSEL */
+.product-image{
+  position:relative;background:radial-gradient(circle,#2f650d22,transparent 55%),#eef0e9;
+  min-height:520px;display:flex;align-items:center;justify-content:center;
+  padding:30px;overflow:hidden
+}
+.carousel-stage{
+  width:100%;height:100%;min-height:460px;
+  display:flex;align-items:center;justify-content:center
+}
+.product-image img{
+  display:block;width:100%;max-height:500px;object-fit:contain;
+  cursor:zoom-in;transition:opacity .18s ease
+}
+.carousel-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:46px;height:46px;border:0;border-radius:50%;
+  background:rgba(23,59,0,.88);color:white;font-size:27px;
+  line-height:1;cursor:pointer;z-index:2;box-shadow:0 5px 15px rgba(0,0,0,.18)
+}
+.carousel-arrow:hover{background:#2f650d}
+.carousel-prev{left:14px}.carousel-next{right:14px}
+.carousel-dots{
+  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+  display:flex;gap:7px;align-items:center
+}
+.carousel-dot{
+  width:9px;height:9px;border:0;border-radius:50%;
+  background:#aeb7a6;cursor:pointer;padding:0
+}
+.carousel-dot.active{background:var(--green);transform:scale(1.25)}
+.zoom-hint{
+  position:absolute;top:14px;right:14px;background:#ffffffd9;
+  color:var(--green);border-radius:999px;padding:7px 10px;
+  font-size:12px;font-weight:800;pointer-events:none
+}
+
+.product-content{padding:30px}
+.product-content h2{color:var(--green);font-size:28px;margin-bottom:7px}
+.product-description{color:var(--muted);margin-bottom:22px}
+.price-box{
+  background:linear-gradient(135deg,#f1f7ec,#fff);
+  border:1px solid #d9e7cf;border-radius:18px;padding:18px;margin-bottom:22px
+}
+.price-label{color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase}
+.price{color:var(--green);font-size:38px;font-weight:900}
+.free-shipping{color:#28630b;font-weight:900;font-size:13px}
+.section-title{font-size:14px;font-weight:900;margin-bottom:10px}
+.option-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.option-btn{
+  border:1px solid var(--line);background:white;border-radius:14px;
+  padding:12px;cursor:pointer;text-align:left;font-weight:800
+}
+.option-btn.active{
+  border-color:var(--green);box-shadow:0 0 0 3px #173b001a;background:#f4f8f0
+}
+.size-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:22px}
+.size-btn{
+  border:1px solid var(--line);background:white;border-radius:11px;
+  padding:10px 5px;cursor:pointer;font-weight:800
+}
+.size-btn.active{background:var(--green);border-color:var(--green);color:white}
+.quantity{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.quantity button{
+  width:38px;height:38px;border:1px solid var(--line);
+  background:white;border-radius:11px;cursor:pointer;font-size:20px
+}
+.quantity span{min-width:30px;text-align:center;font-weight:900}
+.add-button,.submit-button{
+  width:100%;border:0;background:linear-gradient(135deg,var(--green-light),var(--green));
+  color:white;border-radius:15px;padding:16px;font-weight:900;cursor:pointer
+}
+.add-button{box-shadow:0 10px 22px #173b002e}
+.variant-note{font-size:12px;color:var(--muted);margin-top:8px}
+
+/* CARRITO Y PEDIDO */
+.cart-box{
+  margin-top:30px;background:var(--green-dark);color:white;border-radius:24px;
+  padding:25px;box-shadow:var(--shadow)
+}
+.cart-item{
+  display:flex;justify-content:space-between;gap:15px;padding:13px 0;
+  border-bottom:1px solid #ffffff1f
+}
+.cart-item small{display:block;opacity:.75;margin-top:3px}
+.remove-item{
+  border:0;background:#ffffff12;color:white;border-radius:8px;
+  padding:5px 8px;cursor:pointer
+}
+.cart-total{
+  display:flex;justify-content:space-between;margin-top:18px;
+  padding-top:18px;border-top:1px solid #ffffff2e;
+  font-size:21px;font-weight:900
+}
+.order-section{margin-top:30px}
+.order-section h2{color:var(--green);margin-bottom:15px}
+.order-notice{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.order-notice span{
+  background:#f2f8ed;border:1px solid #d5e6c9;color:#28550e;
+  border-radius:12px;padding:9px 13px;font-size:13px;font-weight:900
+}
+.order-form,.payment-box{
+  background:white;border:1px solid var(--line);border-radius:24px;
+  padding:28px;box-shadow:var(--shadow)
+}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.form-group{margin-bottom:15px}.form-group.full{grid-column:1/-1}
+.form-group label{display:block;font-size:13px;font-weight:800;margin-bottom:7px}
+input,select,textarea{
+  width:100%;border:1px solid var(--line);border-radius:13px;
+  background:white;padding:13px 14px;outline:none
+}
+textarea{min-height:100px;resize:vertical}
+.dni-notice{
+  margin:0 0 10px;background:#fff8e6;border:1px solid #ead9a6;
+  color:#6a5415;border-radius:13px;padding:12px 14px;font-size:13px;
+  line-height:1.45;font-weight:600
+}
+.payment-box{margin-top:30px}
+.payment-box h2{color:var(--green);margin-bottom:8px}
+.payment-box>p{color:var(--muted);margin-bottom:18px}
+.payment-methods{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.payment-method{
+  border:1px solid var(--line);border-radius:15px;padding:18px;background:#fafbf8
+}
+.payment-method strong{display:block;margin-bottom:5px}
+.payment-method span{display:block}
+.payment-data{margin-top:8px;font-weight:900;color:var(--green);font-size:18px;letter-spacing:.3px}
+.payment-note{font-size:12px;color:#687062;margin-top:10px}
+.payment-important{
+  margin-top:18px;background:#f2f8ed;border:1px solid #d5e6c9;
+  border-radius:15px;padding:17px;color:#28550e
+}
+.submit-button{margin-top:12px}
+.success{
+  display:none;margin-top:18px;padding:16px;background:#e9f7e1;color:#28550e;
+  border:1px solid #cbe4bc;border-radius:14px;font-weight:700
+}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 45px}
+
+/* ZOOM */
+.zoom{
+  display:none;position:fixed;inset:0;z-index:9999;background:#000d;
+  align-items:center;justify-content:center;padding:20px;cursor:zoom-out
+}
+.zoom.active{display:flex}
+.zoom img{max-width:95vw;max-height:92vh;object-fit:contain;border-radius:14px}
+.zoom button{
+  position:absolute;top:18px;right:20px;width:44px;height:44px;
+  border:0;border-radius:50%;background:#ffffff22;color:white;
+  font-size:28px;cursor:pointer
+}
+
+@media(max-width:850px){
+  .product-layout{grid-template-columns:1fr}
+  .product-block{padding:18px}
+}
+@media(max-width:700px){
+  .header-inner{padding:9px 14px}
+  .brand-logo{width:52px;height:52px}
+  .brand-text strong{font-size:14px}.brand-text span{font-size:10px}
+  .cart-button{padding:9px 12px}
+  .nav-inner{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap}
+  .nav-inner a{padding:11px 14px;font-size:13px}
+  .hero{padding:55px 18px 60px;background:linear-gradient(135deg,#2f650d 0%,#173b00 55%,#0d2500 100%)}
+  .hero::before{font-size:13px;padding:8px 14px;margin-bottom:18px}
+  .hero h1{font-size:52px;letter-spacing:-1px}
+  .hero p{font-size:18px}
+  main{padding:25px 14px 60px}
+  .product-image{min-height:400px;padding:15px}
+  .carousel-stage{min-height:360px}
+  .product-image img{max-height:370px}
+  .product-content{padding:22px}
+  .form-grid,.payment-methods{grid-template-columns:1fr}
+  .form-group.full{grid-column:auto}
+}
+@media(max-width:500px){
+  .option-grid{grid-template-columns:1fr}
+  .size-grid{grid-template-columns:repeat(3,1fr)}
+  .carousel-arrow{width:40px;height:40px;font-size:23px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="header-inner">
+    <a class="brand" href="./index.html">
+      <div class="brand-logo"><img src="./assets/logo.PNG" alt="Academia de Combate"></div>
+      <div class="brand-text">
+        <strong>Academia de Combate</strong>
+        <span>Merchandising oficial</span>
+      </div>
+    </a>
+    <button class="cart-button" onclick="window.location.href='./pedido.html'">🛒 Carrito <span class="cart-count" id="cartCount">0</span></button>
+  </div>
+  <nav>
+    <div class="nav-inner">
+      <a href="./index.html">Inicio</a>
+      <a href="./camisetas.html">Camisetas</a>
+      <a href="./sudaderas.html">Sudaderas</a>
+      <a href="./tazas.html">Tazas</a>
+      <a href="./botellas.html">Botellas</a>
+      <a href="./toallas.html">Toallas</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>SUDADERAS</h1>
+    <p>Sudaderas oficiales de la Academia de Combate, con diferentes modelos y opciones.</p>
+    <div class="badges">
+      <span class="badge">Diseño oficial</span>
+      <span class="badge">Varios modelos</span>
+      <span class="badge">Tallas S–3XL</span>
+      <span class="badge">Envío gratuito</span>
+    </div>
+  </div>
+</section>
+
+<main>
+  <!-- BLOQUE 1: NEW CONCEPT -->
+  <section class="product-block">
+    <div class="product-block-title">
+      <span>MODELO 01</span>
+      <h2>New Concept</h2>
+      <p>Sudadera oficial New Concept de la Academia de Combate.</p>
+    </div>
+
+    <div class="product-layout">
+      <div class="card">
+        <div class="product-image">
+          <button class="carousel-arrow new-prev" onclick="changeNewSlide(-1)" aria-label="Foto anterior">‹</button>
+          <div class="carousel-stage">
+            <img id="newProductImage" src="./assets/sudaderacapuchanegra.png" alt="Sudadera New Concept" onclick="openZoom('new')">
+          </div>
+          <button class="carousel-arrow new-next" onclick="changeNewSlide(1)" aria-label="Foto siguiente">›</button>
+          <div class="carousel-dots" id="newCarouselDots"></div>
+          <div class="zoom-hint">🔍 Pulsa para ampliar</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="product-content">
+          <h2>New Concept</h2>
+          <div class="price-box">
+            <div class="price-label">Precio</div>
+            <div class="price" id="newPrice">34,99 €</div>
+            <div class="free-shipping">✓ Envío gratuito · IVA incluido</div>
+          </div>
+
+          <div class="section-title">Capucha</div>
+          <div class="option-grid">
+            <button class="option-btn active" onclick="chooseNewHood(this,'con')">Con capucha</button>
+            <button class="option-btn" onclick="chooseNewHood(this,'sin')">Sin capucha</button>
+          </div>
+
+          <div class="section-title">Color</div>
+          <div class="option-grid">
+            <button class="option-btn active" onclick="chooseNewColor(this,'negro')">Negro</button>
+            <button class="option-btn" onclick="chooseNewColor(this,'verde')">Verde botella</button>
+          </div>
+
+          <div class="section-title">Talla</div>
+          <div class="size-grid">
+            <button class="size-btn active" onclick="chooseNewSize(this)">S</button>
+            <button class="size-btn" onclick="chooseNewSize(this)">M</button>
+            <button class="size-btn" onclick="chooseNewSize(this)">L</button>
+            <button class="size-btn" onclick="chooseNewSize(this)">XL</button>
+            <button class="size-btn" onclick="chooseNewSize(this)">XXL</button>
+            <button class="size-btn" onclick="chooseNewSize(this)">3XL</button>
+          </div>
+
+          <div class="section-title">Cantidad</div>
+          <div class="quantity">
+            <button onclick="changeNewQty(-1)">−</button>
+            <span id="newQty">1</span>
+            <button onclick="changeNewQty(1)">+</button>
+          </div>
+
+          <button class="add-button" onclick="addNewToCart()">Añadir al carrito</button>
+          <div class="variant-note" id="newVariantNote">New Concept · Con capucha · Negro</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE 2: NUNCA CAMINARÁS SOLO -->
+  <section class="product-block">
+    <div class="product-block-title">
+      <span>MODELO 02</span>
+      <h2>Nunca Caminarás Solo</h2>
+      <p>Sudadera oficial Nunca Caminarás Solo de la Academia de Combate.</p>
+    </div>
+
+    <div class="product-layout">
+      <div class="card">
+        <div class="product-image">
+          <button class="carousel-arrow nunca-prev" onclick="changeNuncaSlide(-1)" aria-label="Foto anterior">‹</button>
+          <div class="carousel-stage">
+            <img id="nuncaProductImage" src="./assets/sudaderanunca.png" alt="Sudadera Nunca Caminarás Solo" onclick="openZoom('nunca')">
+          </div>
+          <button class="carousel-arrow nunca-next" onclick="changeNuncaSlide(1)" aria-label="Foto siguiente">›</button>
+          <div class="carousel-dots" id="nuncaCarouselDots"></div>
+          <div class="zoom-hint">🔍 Pulsa para ampliar</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="product-content">
+          <h2>Nunca Caminarás Solo</h2>
+          <div class="price-box">
+            <div class="price-label">Precio</div>
+            <div class="price" id="nuncaPrice">34,99 €</div>
+            <div class="free-shipping">✓ Envío gratuito · IVA incluido</div>
+          </div>
+
+          <div class="section-title">Color</div>
+          <div class="option-grid">
+            <button class="option-btn active">Verde botella</button>
+          </div>
+
+          <div class="section-title">Talla</div>
+          <div class="size-grid">
+            <button class="size-btn active" onclick="chooseNuncaSize(this)">S</button>
+            <button class="size-btn" onclick="chooseNuncaSize(this)">M</button>
+            <button class="size-btn" onclick="chooseNuncaSize(this)">L</button>
+            <button class="size-btn" onclick="chooseNuncaSize(this)">XL</button>
+            <button class="size-btn" onclick="chooseNuncaSize(this)">XXL</button>
+            <button class="size-btn" onclick="chooseNuncaSize(this)">3XL</button>
+          </div>
+
+          <div class="section-title">Cantidad</div>
+          <div class="quantity">
+            <button onclick="changeNuncaQty(-1)">−</button>
+            <span id="nuncaQty">1</span>
+            <button onclick="changeNuncaQty(1)">+</button>
+          </div>
+
+          <button class="add-button" onclick="addNuncaToCart()">Añadir al carrito</button>
+          <div class="variant-note">Nunca Caminarás Solo · Verde botella</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="carrito" class="cart-box">
+    <h2>🛒 Carrito</h2>
+    <div id="cartItems">Todavía no has añadido productos.</div>
+    <div class="cart-total"><span>Total</span><span id="cartTotal">0,00 €</span></div>
+  </section>
+
+  <section class="order-section">
+    <h2>Datos del pedido</h2>
+    <div class="order-notice">
+      <span>✓ Envío gratuito</span>
+      <span>✓ IVA incluido</span>
+      <span>✓ Pago por Bizum o transferencia</span>
+    </div>
+
+    <form class="order-form" onsubmit="submitOrder(event)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nombre y apellidos *</label>
+          <input required>
+        </div>
+        <div class="form-group">
+          <label>Teléfono *</label>
+          <input type="tel" required>
+        </div>
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" required>
+        </div>
+        <div class="form-group">
+          <label>Código postal *</label>
+          <input required>
+        </div>
+        <div class="form-group">
+          <label>Ciudad *</label>
+          <input required>
+        </div>
+        <div class="form-group">
+          <label>Dirección *</label>
+          <input required>
+        </div>
+        <div class="form-group full">
+          <label>Observaciones / Comentarios del pedido</label>
+          <div class="dni-notice">
+            ⚠️ Para envíos a Baleares y Canarias es necesario indicar el
+            <strong>DNI</strong> en las observaciones, ya que lo exige la mensajería.
+          </div>
+          <textarea placeholder="Indica aquí cualquier detalle del pedido..."></textarea>
+        </div>
+      </div>
+      <button class="submit-button" type="submit">Enviar pedido</button>
+      <div class="success" id="success">
+        Pedido preparado correctamente. Recuerda realizar el pago mediante Bizum o transferencia y enviar el justificante al 622 867 446.
+      </div>
+    </form>
+  </section>
+
+  <div class="payment-box">
+    <h2>Pago</h2>
+
+    <p>
+      <strong>Importante:</strong> esta página web
+      <strong>no realiza cobros</strong>.
+      El pago del pedido se realiza mediante
+      <strong>Bizum o transferencia bancaria</strong>
+      con los datos indicados a continuación.
+    </p>
+
+    <div class="payment-methods">
+      <div class="payment-method">
+        <strong>📱 Bizum</strong>
+        <span>Número de Bizum:</span>
+        <div class="payment-data">622 867 446</div>
+      </div>
+
+      <div class="payment-method">
+        <strong>🏦 Transferencia bancaria</strong>
+        <span>IBAN:</span>
+        <div class="payment-data">ES49 1583 0001 1390 7482 9493</div>
+
+        <div class="payment-note">
+          Beneficiario: <strong>Bolsillo Mágico</strong><br>
+          Concepto: <strong>Tu nombre con apellido</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="payment-important">
+      <strong>📸 Muy importante: justificante de pago</strong>
+      <br>
+      Una vez realizado el pago, envía el justificante
+      (captura o foto) al número de Bizum
+      <strong>622 867 446</strong>
+      para poder comprobar el pago y realizar/confirmar el pedido.
+    </div>
+  </div>
+</main>
+
+<footer>© Academia de Combate · Merchandising Oficial</footer>
+
+<div class="zoom" id="zoom" onclick="closeZoom()">
+  <button onclick="closeZoom()" aria-label="Cerrar">×</button>
+  <img id="zoomImage" src="" alt="Imagen ampliada">
+</div>
+
+<script>
+const CART_KEY="academiaCombateCart";
+const product="Sudaderas";
+const basePrice=34.99;
+
+let newHood="con", newColor="negro", newSize="S", newQty=1, newSlideIndex=0;
+let nuncaSize="S", nuncaQty=1, nuncaSlideIndex=0;
+
+function getNewGallery(){
+  if(newHood==="con" && newColor==="negro") return ["sudaderacapuchanegra.png"];
+  if(newHood==="con" && newColor==="verde") return ["sudaderacapuchaverde.png"];
+  if(newHood==="sin" && newColor==="negro") return ["sincapuchanegra.png"];
+  if(newHood==="sin" && newColor==="verde") return ["sincapuchaverde.png"];
+  return ["sudadera1.png","sudadera2.png"];
+}
+
+function getNuncaGallery(){
+  return ["sudaderanunca.png","sudaderanunca1.png"];
+}
+
+function updateNewGallery(){
+  const gallery=getNewGallery();
+  newSlideIndex=Math.max(0,Math.min(newSlideIndex,gallery.length-1));
+  const img=document.getElementById("newProductImage");
+  img.style.opacity="0";
+  setTimeout(()=>{img.src="./assets/"+gallery[newSlideIndex];img.style.opacity="1"},100);
+
+  document.getElementById("newCarouselDots").innerHTML=gallery.map((_,i)=>
+    `<button class="carousel-dot ${i===newSlideIndex?"active":""}" onclick="goToNewSlide(${i})" aria-label="Foto ${i+1}"></button>`
+  ).join("");
+
+  document.querySelector(".new-prev").style.display=gallery.length>1?"block":"none";
+  document.querySelector(".new-next").style.display=gallery.length>1?"block":"none";
+}
+
+function updateNuncaGallery(){
+  const gallery=getNuncaGallery();
+  nuncaSlideIndex=Math.max(0,Math.min(nuncaSlideIndex,gallery.length-1));
+  const img=document.getElementById("nuncaProductImage");
+  img.style.opacity="0";
+  setTimeout(()=>{img.src="./assets/"+gallery[nuncaSlideIndex];img.style.opacity="1"},100);
+
+  document.getElementById("nuncaCarouselDots").innerHTML=gallery.map((_,i)=>
+    `<button class="carousel-dot ${i===nuncaSlideIndex?"active":""}" onclick="goToNuncaSlide(${i})" aria-label="Foto ${i+1}"></button>`
+  ).join("");
+
+  document.querySelector(".nunca-prev").style.display=gallery.length>1?"block":"none";
+  document.querySelector(".nunca-next").style.display=gallery.length>1?"block":"none";
+}
+
+function changeNewSlide(direction){
+  const gallery=getNewGallery();
+  if(gallery.length<2)return;
+  newSlideIndex=(newSlideIndex+direction+gallery.length)%gallery.length;
+  updateNewGallery();
+}
+
+function goToNewSlide(index){newSlideIndex=index;updateNewGallery()}
+
+function changeNuncaSlide(direction){
+  const gallery=getNuncaGallery();
+  if(gallery.length<2)return;
+  nuncaSlideIndex=(nuncaSlideIndex+direction+gallery.length)%gallery.length;
+  updateNuncaGallery();
+}
+
+function goToNuncaSlide(index){nuncaSlideIndex=index;updateNuncaGallery()}
+
+function chooseNewHood(btn,value){
+  btn.parentElement.querySelectorAll(".option-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");newHood=value;newSlideIndex=0;
+  updateNewPrice();
+  document.getElementById("newVariantNote").textContent=selectedNewVariantName();
+  updateNewGallery();
+}
+
+function chooseNewColor(btn,value){
+  btn.parentElement.querySelectorAll(".option-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");newColor=value;newSlideIndex=0;
+  document.getElementById("newVariantNote").textContent=selectedNewVariantName();
+  updateNewGallery();
+}
+
+function chooseNewSize(btn){
+  btn.parentElement.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");newSize=btn.textContent;
+}
+
+function chooseNuncaSize(btn){
+  btn.parentElement.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");nuncaSize=btn.textContent;
+}
+
+function changeNewQty(n){
+  newQty=Math.max(1,Math.min(20,newQty+n));
+  document.getElementById("newQty").textContent=newQty;
+}
+
+function changeNuncaQty(n){
+  nuncaQty=Math.max(1,Math.min(20,nuncaQty+n));
+  document.getElementById("nuncaQty").textContent=nuncaQty;
+}
+
+function updateNewPrice(){
+  const price=document.getElementById("newPrice");
+  const withoutHood=newHood==="sin";
+  price.textContent=withoutHood?"29,99 €":"34,99 €";
+}
+
+function selectedNewVariantName(){
+  return "New Concept · "+(newHood==="con"?"Con capucha":"Sin capucha")+" · "+(newColor==="negro"?"Negro":"Verde botella");
+}
+
+function addNewToCart(){
+  let c=getCart();
+  c.push({
+    id:Date.now(),category:"sudaderas",product:selectedNewVariantName(),
+    color:newColor==="negro"?"Negro":"Verde botella",
+    formato:newHood==="con"?"Con capucha":"Sin capucha",
+    size:newSize,quantity:newQty,price:newHood==="sin"?29.99:34.99
+  });
+  saveCart(c);renderCart();document.getElementById("carrito").scrollIntoView({behavior:"smooth"});
+}
+
+function addNuncaToCart(){
+  let c=getCart();
+  c.push({
+    id:Date.now(),category:"sudaderas",
+    product:"Nunca Caminarás Solo · Verde botella",
+    color:"Verde botella",formato:"Nunca Caminarás Solo",
+    size:nuncaSize,quantity:nuncaQty,price:34.99
+  });
+  saveCart(c);renderCart();document.getElementById("carrito").scrollIntoView({behavior:"smooth"});
+}
+
+function openZoom(modelName){
+  const img=document.getElementById(modelName==="new"?"newProductImage":"nuncaProductImage");
+  document.getElementById("zoomImage").src=img.src;
+  document.getElementById("zoom").classList.add("active");
+}
+
+function getCart(){
+  try{return JSON.parse(localStorage.getItem(CART_KEY))||[]}
+  catch(e){return[]}
+}
+
+function saveCart(c){
+  localStorage.setItem(CART_KEY,JSON.stringify(c));
+}
+
+function removeItem(id){
+  saveCart(getCart().filter(x=>x.id!==id));
+  renderCart();
+}
+
+function renderCart(){
+  let c=getCart();
+  let total=c.reduce((s,x)=>s+x.price*x.quantity,0);
+  let count=c.reduce((s,x)=>s+x.quantity,0);
+
+  document.getElementById("cartCount").textContent=count;
+  document.getElementById("cartTotal").textContent=total.toFixed(2).replace(".",",")+" €";
+
+  document.getElementById("cartItems").innerHTML=c.length
+    ?c.map(x=>`
+      <div class="cart-item">
+        <div>
+          <b>${x.quantity} × ${x.product}</b>
+          <small>Talla ${x.size}</small>
+        </div>
+        <div>
+          ${(x.quantity*x.price).toFixed(2).replace(".",",")} €
+          <button class="remove-item" onclick="removeItem(${x.id})">✕</button>
+        </div>
+      </div>
+    `).join("")
+    :"<div class='cart-empty'>Todavía no has añadido productos.</div>";
+}
+
+function closeZoom(){
+  document.getElementById("zoom").classList.remove("active");
+}
+
+const ORDER_ENDPOINT="https://script.google.com/macros/s/AKfycbzPuiQbKU7ULBDJCqUGUczys2hb6DFBx3SVSY9S01ugV5h9Z9UFND5RL69kHnJMJDw2/exec";
+
+function collectCustomerData(form){
+  const inputs=[...form.querySelectorAll("input")];
+  const textarea=form.querySelector("textarea");
+  return {
+    name:(inputs[0]?.value||"").trim(),
+    phone:(inputs[1]?.value||"").trim(),
+    email:(inputs[2]?.value||"").trim(),
+    postal:(inputs[3]?.value||"").trim(),
+    city:(inputs[4]?.value||"").trim(),
+    address:(inputs[5]?.value||"").trim(),
+    notes:(textarea?.value||"").trim()
+  };
+}
+
+function sendOrderToServer(customer,cart){
+  if(!ORDER_ENDPOINT || ORDER_ENDPOINT.includes("PEGAR_AQUI")){
+    throw new Error("Falta configurar la URL de Google Apps Script.");
+  }
+  const payload={
+    customer: customer,
+    cart: cart,
+    page: location.pathname
+  };
+  const body=JSON.stringify(payload);
+  // sendBeacon evita problemas de CORS/fetch que pueden aparecer en Safari.
+  // Google Apps Script recibe el cuerpo como text/plain y lo procesa en doPost().
+  if(navigator.sendBeacon){
+    const blob=new Blob([body],{type:"text/plain;charset=UTF-8"});
+    const queued=navigator.sendBeacon(ORDER_ENDPOINT,blob);
+    if(queued) return;
+  }
+  // Respaldo para navegadores que no puedan usar sendBeacon.
+  const form=document.createElement("form");
+  form.method="POST";
+  form.action=ORDER_ENDPOINT;
+  form.target="pedidoHiddenFrame";
+  form.style.display="none";
+  const field=document.createElement("textarea");
+  field.name="payload";
+  field.value=body;
+  form.appendChild(field);
+  const iframe=document.createElement("iframe");
+  iframe.name="pedidoHiddenFrame";
+  iframe.style.display="none";
+  document.body.appendChild(iframe);
+  document.body.appendChild(form);
+  form.submit();
+  setTimeout(()=>{form.remove();iframe.remove()},10000);
+}
+
+async function submitOrder(e){
+  e.preventDefault();
+  const cart=getCart();
+  if(!cart.length){
+    alert("Añade al menos un producto al carrito.");
+    return;
+  }
+  const form=e.currentTarget;
+  if(!form.checkValidity()){
+    form.reportValidity();
+    return;
+  }
+
+  const button=form.querySelector(".submit-button");
+  const originalText=button?button.textContent:"Enviar pedido";
+  if(button){
+    button.disabled=true;
+    button.textContent="Enviando pedido...";
+  }
+
+  try{
+    const customer=collectCustomerData(form);
+    await sendOrderToServer(customer,cart);
+
+    const success=document.getElementById("successMessage") || document.getElementById("success");
+    if(success){
+      success.innerHTML="<strong>✓ Pedido registrado correctamente.</strong><br><br>Hemos enviado la confirmación al email indicado. Recibirás también las instrucciones para realizar el pago y enviar el justificante.";
+      success.style.display="block";
+      success.classList.add("show");
+      success.scrollIntoView({behavior:"smooth",block:"center"});
+    }
+
+    localStorage.removeItem(CART_KEY);
+    if(typeof updateCart==="function") updateCart();
+    else if(typeof renderCart==="function") renderCart();
+  }catch(err){
+    console.error(err);
+    alert("No se ha podido registrar el pedido. Comprueba la configuración de pedidos o inténtalo de nuevo.");
+  }finally{
+    if(button){
+      button.disabled=false;
+      button.textContent=originalText;
+    }
+  }
+}
+
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape")closeZoom();
+  if(e.key==="ArrowLeft"){changeNewSlide(-1);changeNuncaSlide(-1)}
+  if(e.key==="ArrowRight"){changeNewSlide(1);changeNuncaSlide(1)}
+});
+
+updateNewGallery();
+updateNewPrice();
+updateNuncaGallery();
+renderCart();
+</script>
+<script>(function(){const K="academiaCombateCart";function s(){try{const c=JSON.parse(localStorage.getItem(K)||"[]");const n=c.reduce((a,i)=>a+Number(i.quantity||0),0),e=document.getElementById("cartCount");if(e)e.textContent=n}catch(x){}}s();window.addEventListener("storage",s)})();</script></body>
+</html>
