@@ -1016,8 +1016,8 @@ footer{
             <div class="product-image">
                 <img
                     id="productImage"
-                    src="./assets/camisetas.png"
-                    alt="Camiseta Frontier"
+                    src="./assets/camiseta-azul-marino.png"
+                    alt="Camiseta Frontier Azul marino"
                 >
             </div>
             <div class="product-content">
@@ -1069,47 +1069,42 @@ footer{
                 </div>
                 <div class="color-grid">
                     <button
-                        class="color-btn active"
+                        class="color-btn"
+                        data-product="azul-marino"
                         data-color="Azul marino"
-                        data-image="./assets/camisetas.png"
-                        onclick="selectColor(this)"
+                        onclick="goToProduct('azul-marino')"
                     >
-                        <span
-                            class="color-dot dot-navy"
-                        ></span>
+                        <span class="color-dot dot-navy"></span>
                         Azul marino
                     </button>
+
                     <button
                         class="color-btn"
+                        data-product="negra"
                         data-color="Negro"
-                        data-image="./assets/camisetas.png"
-                        onclick="selectColor(this)"
+                        onclick="goToProduct('negra')"
                     >
-                        <span
-                            class="color-dot dot-black"
-                        ></span>
+                        <span class="color-dot dot-black"></span>
                         Negro
                     </button>
+
                     <button
                         class="color-btn"
+                        data-product="verde-militar"
                         data-color="Verde militar"
-                        data-image="./assets/camisetas.png"
-                        onclick="selectColor(this)"
+                        onclick="goToProduct('verde-militar')"
                     >
-                        <span
-                            class="color-dot dot-green"
-                        ></span>
+                        <span class="color-dot dot-green"></span>
                         Verde militar
                     </button>
+
                     <button
                         class="color-btn"
+                        data-product="arena"
                         data-color="Arena"
-                        data-image="./assets/camisetas.png"
-                        onclick="selectColor(this)"
+                        onclick="goToProduct('arena')"
                     >
-                        <span
-                            class="color-dot dot-arena"
-                        ></span>
+                        <span class="color-dot dot-arena"></span>
                         Arena
                     </button>
                 </div>
@@ -1409,7 +1404,7 @@ footer{
                     Puedes realizar el pago mediante Bizum al siguiente número:
                 </span>
                 <div class="payment-data">
-                    622 867 446
+                    [TU NÚMERO BIZUM]
                 </div>
             </div>
             <!-- TRANSFERENCIA -->
@@ -1421,10 +1416,10 @@ footer{
                     Realiza la transferencia utilizando los siguientes datos:
                 </span>
                 <div class="payment-data">
-                    ES12 1234 5678 9012 3456 7890
+                    [TU IBAN]
                 </div>
                 <div class="payment-note">
-                    ⚠️ Número provisional. Sustituir por la cuenta bancaria real antes de publicar la web.
+                    ⚠️ Sustituye este IBAN por la cuenta bancaria real antes de publicar la web.
                 </div>
             </div>
         </div>
@@ -1454,14 +1449,40 @@ const prices = {
     baleares:24.90,
     canarias:25.90
 };
-let selectedColor =
-    "Azul marino";
-let selectedSize =
-    "M";
-let quantity =
-    1;
-let cart =
-    [];
+/* =====================================================
+   PRODUCTOS
+===================================================== */
+const products = {
+    "azul-marino": {
+        name: "Camiseta Frontier — Azul marino",
+        color: "Azul marino",
+        image: "./assets/camiseta-azul-marino.png"
+    },
+    "negra": {
+        name: "Camiseta Frontier — Negra",
+        color: "Negro",
+        image: "./assets/camiseta-negra.png"
+    },
+    "verde-militar": {
+        name: "Camiseta Frontier — Verde militar",
+        color: "Verde militar",
+        image: "./assets/camiseta-verde-militar.png"
+    },
+    "arena": {
+        name: "Camiseta Frontier — Arena",
+        color: "Arena",
+        image: "./assets/camiseta-arena.png"
+    }
+};
+
+const params = new URLSearchParams(window.location.search);
+const productKey = params.get("producto") || "azul-marino";
+const currentProduct = products[productKey] || products["azul-marino"];
+
+let selectedColor = currentProduct.color;
+let selectedSize = "M";
+let quantity = 1;
+let cart = JSON.parse(localStorage.getItem("academiaCombateCart") || "[]");
 /* =====================================================
    FORMATO PRECIO
 ===================================================== */
@@ -1492,22 +1513,11 @@ function updatePrice(){
 /* =====================================================
    COLOR
 ===================================================== */
-function selectColor(button){
-    document
-        .querySelectorAll(".color-btn")
-        .forEach(
-            btn =>
-            btn.classList.remove("active")
-        );
-    button.classList.add("active");
-    selectedColor =
-        button.dataset.color;
-    const image =
-        button.dataset.image;
-    document
-        .getElementById("productImage")
-        .src =
-        image;
+function goToProduct(product){
+    window.location.href =
+        window.location.pathname +
+        "?producto=" +
+        encodeURIComponent(product);
 }
 /* =====================================================
    TALLA
@@ -1547,17 +1557,24 @@ function addToCart(){
         document
         .getElementById("destination")
         .value;
+
     const price =
         prices[destination];
+
     const item = {
-        id:Date.now(),
-        color:selectedColor,
-        size:selectedSize,
-        quantity:quantity,
-        price:price
+        id: Date.now(),
+        product: productKey,
+        productName: currentProduct.name,
+        color: selectedColor,
+        size: selectedSize,
+        quantity: quantity,
+        price: price
     };
+
     cart.push(item);
+    saveCart();
     updateCart();
+
     document
         .getElementById("cart")
         .scrollIntoView({
@@ -1573,8 +1590,17 @@ function removeItem(id){
             item =>
             item.id !== id
         );
+
+    saveCart();
     updateCart();
 }
+function saveCart(){
+    localStorage.setItem(
+        "academiaCombateCart",
+        JSON.stringify(cart)
+    );
+}
+
 /* =====================================================
    ACTUALIZAR CARRITO
 ===================================================== */
@@ -1615,7 +1641,7 @@ function updateCart(){
             <div class="cart-item">
                 <div>
                     <strong>
-                        Camiseta Frontier
+                        ${item.productName || "Camiseta Frontier"}
                     </strong>
                     <small>
                         ${item.color}
@@ -1651,7 +1677,7 @@ function updateCart(){
             ">
                 <strong>
                     ${item.quantity}
-                    × Camiseta Frontier
+                    × ${item.productName || "Camiseta Frontier"}
                 </strong>
                 <div style="
                     color:#687062;
@@ -1751,6 +1777,25 @@ function submitOrder(event){
 /* =====================================================
    INICIO
 ===================================================== */
+document.title =
+    currentProduct.name + " | Academia de Combate";
+
+document.getElementById("productImage").src =
+    currentProduct.image;
+
+document.getElementById("productImage").alt =
+    currentProduct.name;
+
+document.querySelector(".product-content h2").textContent =
+    currentProduct.name;
+
+document.querySelectorAll(".color-btn").forEach(button => {
+    button.classList.toggle(
+        "active",
+        button.dataset.product === productKey
+    );
+});
+
 updatePrice();
 updateCart();
 </script>
