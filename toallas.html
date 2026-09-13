@@ -566,34 +566,105 @@ header nav a:hover, header .category-nav a:hover{
 }
 
 </style>
+
+<style id="toallas-estilo-final">
+html,body{margin:0!important}
+
+body>header{
+  position:sticky!important;top:0!important;z-index:9999!important;width:100%!important;
+  background:#092800!important;color:#fff!important;
+  border-bottom:1px solid rgba(255,255,255,.12)!important;
+  box-shadow:0 5px 25px rgba(0,0,0,.18)!important;
+}
+body>header .header-inner{
+  max-width:1200px!important;margin:0 auto!important;
+  padding:10px 20px!important;min-height:72px!important;
+  display:flex!important;align-items:center!important;
+  justify-content:space-between!important;gap:20px!important;
+}
+body>header .brand,body>header .brand:visited,body>header .brand:hover{
+  color:#fff!important;text-decoration:none!important;
+}
+body>header .brand-text strong,body>header .brand-text span{color:#fff!important}
+body>header .cart-button{
+  color:#fff!important;background:rgba(255,255,255,.08)!important;
+  border:1px solid rgba(255,255,255,.25)!important;border-radius:999px!important;
+}
+body>header nav{
+  width:100%!important;background:#0b2b00!important;
+  border-top:1px solid rgba(255,255,255,.12)!important;
+  border-bottom:1px solid rgba(255,255,255,.12)!important;
+}
+body>header nav .nav-inner{
+  max-width:1200px!important;margin:0 auto!important;padding:0 20px!important;
+  min-height:58px!important;display:flex!important;
+  justify-content:center!important;align-items:center!important;
+  gap:28px!important;flex-wrap:nowrap!important;
+}
+body>header nav a,body>header nav a:visited,body>header nav a:hover{
+  color:#fff!important;background:transparent!important;
+  border:0!important;border-radius:0!important;
+  text-decoration:none!important;font-weight:700!important;
+  padding:17px 0!important;opacity:1!important;
+}
+body>header nav a[href="./toallas.html"]{
+  color:#fff!important;background:transparent!important;border:0!important;
+}
+
+/* Hero verde y texto blanco */
+body>.hero{
+  position:relative!important;overflow:hidden!important;
+  text-align:center!important;color:#fff!important;
+  min-height:390px!important;box-sizing:border-box!important;
+  padding:80px 20px 85px!important;
+  background:
+    radial-gradient(ellipse at center,rgba(98,125,54,.42),transparent 58%),
+    linear-gradient(135deg,#061400 0%,#123900 30%,#3b5122 52%,#1c3508 76%,#071600 100%)!important;
+}
+body>.hero h1{
+  color:#fff!important;font-size:clamp(48px,7vw,88px)!important;
+  line-height:1!important;margin:10px 0 30px!important;
+  text-shadow:0 4px 15px rgba(0,0,0,.35)!important;
+}
+body>.hero p{
+  color:rgba(255,255,255,.88)!important;
+  max-width:760px!important;margin:0 auto!important;
+  font-size:clamp(18px,2.2vw,28px)!important;line-height:1.5!important;
+}
+body>.hero .badges{margin-top:30px!important;gap:14px!important}
+body>.hero .badge{
+  color:#fff!important;background:rgba(255,255,255,.08)!important;
+  border:1px solid rgba(255,255,255,.25)!important;
+  border-radius:50px!important;padding:12px 20px!important;
+  font-size:16px!important;font-weight:800!important;
+}
+
+@media(max-width:700px){
+  body>header .header-inner{padding:12px 14px!important}
+  body>header nav .nav-inner{gap:18px!important;overflow-x:auto!important;justify-content:flex-start!important}
+  body>header nav a{font-size:14px!important;padding:15px 0!important}
+  body>.hero{min-height:330px!important;padding:55px 18px 60px!important}
+  body>.hero h1{font-size:48px!important}
+  body>.hero p{font-size:18px!important}
+}
+</style>
+
 </head>
 <body>
 
 <header>
-    <div class="header-inner">
-        <a class="brand" href="./index.html">
-            <div class="brand-logo">
-                <img src="./assets/logo.PNG" alt="Academia de Combate">
-            </div>
-            <div class="brand-text">
-                <strong>Academia de Combate</strong>
-                <span>Merchandising oficial</span>
-            </div>
-        </a>
-        <button class="cart-button" onclick="window.location.href='./index.html#categorias'">
-            🛒 Carrito
-        </button>
+  <div class="header-inner">
+    <a class="brand" href="./index.html">
+      <div class="brand-logo"><img src="./assets/logo.PNG" alt="Academia de Combate"></div>
+      <div class="brand-text"><strong>Academia de Combate</strong><span>Merchandising oficial</span></div>
+    </a>
+    <button class="cart-button" onclick="document.getElementById('cart').scrollIntoView({behavior:'smooth'})">🛒 Carrito <span id="cartCount" class="cart-count">0</span></button>
+  </div>
+  <nav>
+    <div class="nav-inner">
+      <a href="./index.html">Inicio</a><a href="./camisetas.html">Camisetas</a><a href="./sudaderas.html">Sudaderas</a><a href="./tazas.html">Tazas</a><a href="./botellas.html">Botellas</a><a href="./toallas.html">Toallas</a>
     </div>
-    <nav>
-        <div class="nav-inner">
-            <a href="./index.html">Inicio</a>
-            <a href="./camisetas.html">Camisetas</a>
-            <a href="./sudaderas.html">Sudaderas</a>
-            <a href="./tazas.html">Tazas</a>
-            <a href="./botellas.html">Botellas</a>
-            <a href="./toallas.html">Toallas</a>
-        </div>
-    </nav>
+  </nav>
 </header><section class="hero"><div class="hero-content"><h1>TOALLAS</h1><p>Toalla oficial de la Academia de Combate, pensada para acompañarte en entrenamientos y actividades del día a día.</p><div class="badges"><span class="badge">Diseño oficial</span><span class="badge">Microfibra</span><span class="badge">70 × 120 cm</span><span class="badge">Gris oscuro</span></div></div></section>
 
 <div class="image-zoom-overlay" id="imageZoom" onclick="closeImageZoom(event)">
@@ -617,7 +688,7 @@ header nav a:hover, header .category-nav a:hover{
                 </p>
 
                 <div class="price" id="price">14,90 €</div>
-                <div class="price-note">Precio de prueba · IVA incluido</div>
+                <div class="price-note">Precio</div>
 
                 <div class="section-title">Características</div>
                 <div class="info-grid">
@@ -660,23 +731,7 @@ header nav a:hover, header .category-nav a:hover{
             </div>
         </div>
     </div>
-
-    <div class="shipping">
-        <div class="shipping-card">
-            <strong>🇪🇸 Península</strong>
-            <span>14,90 € · precio de prueba</span>
-        </div>
-        <div class="shipping-card">
-            <strong>🏝️ Baleares</strong>
-            <span>18,90 € · precio de prueba</span>
-        </div>
-        <div class="shipping-card">
-            <strong>🌋 Canarias</strong>
-            <span>19,90 € · precio de prueba</span>
-        </div>
-    </div>
-
-    <section class="cart-section" id="cart">
+<section class="cart-section" id="cart">
         <h2>🛒 Tu carrito</h2>
         <div id="cartItems" class="cart-empty">
             Todavía no has añadido ninguna toalla.
@@ -708,21 +763,13 @@ header nav a:hover, header .category-nav a:hover{
                     <label for="city">Localidad</label>
                     <input id="city" required>
                 </div>
-                <div class="form-group">
-                    <label for="destination">Destino</label>
-                    <select id="destination" onchange="updatePrice()">
-                        <option value="peninsula">Península</option>
-                        <option value="baleares">Baleares</option>
-                        <option value="canarias">Canarias</option>
-                    </select>
-                </div>
                 <div class="form-group full">
                     <label for="address">Dirección</label>
                     <input id="address" required>
                 </div>
                 <div class="form-group full">
                     <label for="notes">Observaciones</label>
-                    <textarea id="notes" placeholder="Cualquier indicación adicional sobre el pedido..."></textarea>
+                    <textarea id="notes" name="notes" placeholder="Si eres de Baleares o Canarias, indica aquí tu DNI (lo exige la mensajería). También puedes añadir cualquier otra indicación sobre tu pedido."></textarea>
                 </div>
             </div>
             <button class="submit-button" type="submit">Enviar pedido</button>
@@ -735,29 +782,24 @@ header nav a:hover, header .category-nav a:hover{
         </div>
     </section>
 
-    <section class="payment-section">
-        <h2>💳 Forma de pago</h2>
+    <div class="payment-box">
+        <h2>Pago</h2>
+        <p><strong>Importante:</strong> esta página web <strong>no realiza cobros</strong>. El pago del pedido se realiza mediante <strong>Bizum o transferencia bancaria</strong> con los datos indicados a continuación.</p>
         <div class="payment-methods">
-            <div class="payment-method">
-                <strong>📱 Bizum</strong>
-                <span>Puedes realizar el pago mediante Bizum al siguiente número:</span>
-                <div class="payment-data">[TU NÚMERO BIZUM]</div>
-            </div>
-            <div class="payment-method">
-                <strong>🏦 Transferencia bancaria</strong>
-                <span>Realiza la transferencia utilizando los siguientes datos:</span>
-                <div class="payment-data">[TU IBAN]</div>
-                <div class="payment-note">
-                    ⚠️ Sustituye este IBAN por la cuenta bancaria real antes de publicar la web.
-                </div>
-            </div>
+          <div class="payment-method">
+            <strong>📱 Bizum</strong>
+            <span>Número de Bizum:</span>
+            <div class="payment-data">622 867 446</div>
+          </div>
+          <div class="payment-method">
+            <strong>🏦 Transferencia bancaria</strong>
+            <span>IBAN:</span>
+            <div class="payment-data">ES49 1583 0001 1390 7482 9493</div>
+            <div class="payment-note">Beneficiario: <strong>Bolsillo Mágico</strong><br>Concepto: <strong>Tu nombre con apellido</strong></div>
+          </div>
         </div>
-        <div class="payment-important">
-            <strong>📸 Importante: justificante de pago</strong><br>
-            Una vez realizado el pago, haz una captura o foto del justificante y
-            envíasela a tu coordinador para que pueda comprobar el pago y confirmar tu pedido.
-        </div>
-    </section>
+        <div class="payment-important"><strong>📸 Muy importante: justificante de pago</strong><br>Una vez realizado el pago, envía el justificante (captura o foto) al número de Bizum <strong>622 867 446</strong> para poder comprobar el pago y realizar/confirmar el pedido.</div>
+      </div>
 </main>
 
 <footer>
