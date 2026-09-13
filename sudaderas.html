@@ -360,7 +360,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 45p
           <h2>New Concept</h2>
           <div class="price-box">
             <div class="price-label">Precio</div>
-            <div class="price">34,90 €</div>
+            <div class="price" id="newPrice">34,99 €</div>
             <div class="free-shipping">✓ Envío gratuito · IVA incluido</div>
           </div>
 
@@ -426,7 +426,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 45p
           <h2>Nunca Caminarás Solo</h2>
           <div class="price-box">
             <div class="price-label">Precio</div>
-            <div class="price">34,90 €</div>
+            <div class="price" id="nuncaPrice">34,99 €</div>
             <div class="free-shipping">✓ Envío gratuito · IVA incluido</div>
           </div>
 
@@ -566,7 +566,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 45p
 <script>
 const CART_KEY="academiaCombateCart";
 const product="Sudaderas";
-const basePrice=34.90;
+const basePrice=34.99;
 
 let newHood="con", newColor="negro", newSize="S", newQty=1, newSlideIndex=0;
 let nuncaSize="S", nuncaQty=1, nuncaSlideIndex=0;
@@ -634,6 +634,7 @@ function goToNuncaSlide(index){nuncaSlideIndex=index;updateNuncaGallery()}
 function chooseNewHood(btn,value){
   btn.parentElement.querySelectorAll(".option-btn").forEach(b=>b.classList.remove("active"));
   btn.classList.add("active");newHood=value;newSlideIndex=0;
+  updateNewPrice();
   document.getElementById("newVariantNote").textContent=selectedNewVariantName();
   updateNewGallery();
 }
@@ -665,6 +666,12 @@ function changeNuncaQty(n){
   document.getElementById("nuncaQty").textContent=nuncaQty;
 }
 
+function updateNewPrice(){
+  const price=document.getElementById("newPrice");
+  const withoutHood=newHood==="sin";
+  price.textContent=withoutHood?"29,99 €":"34,99 €";
+}
+
 function selectedNewVariantName(){
   return "New Concept · "+(newHood==="con"?"Con capucha":"Sin capucha")+" · "+(newColor==="negro"?"Negro":"Verde botella");
 }
@@ -675,7 +682,7 @@ function addNewToCart(){
     id:Date.now(),category:"sudaderas",product:selectedNewVariantName(),
     color:newColor==="negro"?"Negro":"Verde botella",
     formato:newHood==="con"?"Con capucha":"Sin capucha",
-    size:newSize,quantity:newQty,price:basePrice
+    size:newSize,quantity:newQty,price:newHood==="sin"?29.99:34.99
   });
   saveCart(c);renderCart();document.getElementById("carrito").scrollIntoView({behavior:"smooth"});
 }
@@ -686,7 +693,7 @@ function addNuncaToCart(){
     id:Date.now(),category:"sudaderas",
     product:"Nunca Caminarás Solo · Verde botella",
     color:"Verde botella",formato:"Nunca Caminarás Solo",
-    size:nuncaSize,quantity:nuncaQty,price:basePrice
+    size:nuncaSize,quantity:nuncaQty,price:34.99
   });
   saveCart(c);renderCart();document.getElementById("carrito").scrollIntoView({behavior:"smooth"});
 }
@@ -755,6 +762,7 @@ document.addEventListener("keydown",e=>{
 });
 
 updateNewGallery();
+updateNewPrice();
 updateNuncaGallery();
 renderCart();
 </script>
