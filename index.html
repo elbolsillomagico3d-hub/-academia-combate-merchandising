@@ -1032,8 +1032,8 @@ footer{
             <div class="product-image">
                 <img
                     id="productImage"
-                    src="./assets/camiseta-azul-marino.png"
-                    alt="Camiseta Frontier Azul marino"
+                    src="./assets/camisetas.png"
+                    alt="Camiseta Frontier"
                 >
             </div>
             <div class="product-content">
@@ -1747,11 +1747,13 @@ function submitOrder(event){
 document.title =
     currentProduct.name + " | Academia de Combate";
 
-document.getElementById("productImage").src =
-    currentProduct.image;
-
-document.getElementById("productImage").alt =
-    currentProduct.name;
+if (params.has("producto")) {
+    document.getElementById("productImage").src = currentProduct.image;
+    document.getElementById("productImage").alt = currentProduct.name;
+} else {
+    document.getElementById("productImage").src = "./assets/camisetas.png";
+    document.getElementById("productImage").alt = "Camiseta Frontier";
+}
 
 document.querySelector(".product-content h2").textContent =
     currentProduct.name;
