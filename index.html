@@ -339,6 +339,64 @@ main{
     color:var(--muted);
     margin-bottom:25px;
 }
+
+/* =====================================================
+   ZOOM DE LA CAMISETA
+===================================================== */
+.product-image{
+    cursor:zoom-in;
+}
+.product-image img{
+    cursor:zoom-in;
+}
+.image-zoom-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:rgba(0,0,0,.86);
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    cursor:zoom-out;
+}
+.image-zoom-overlay.active{
+    display:flex;
+}
+.image-zoom-overlay img{
+    max-width:95vw;
+    max-height:92vh;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    border-radius:14px;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+    cursor:default;
+    animation:zoomIn .2s ease-out;
+}
+.zoom-close{
+    position:absolute;
+    top:18px;
+    right:22px;
+    width:44px;
+    height:44px;
+    border:0;
+    border-radius:50%;
+    background:rgba(255,255,255,.15);
+    color:white;
+    font-size:30px;
+    line-height:44px;
+    cursor:pointer;
+    z-index:2;
+}
+.zoom-close:hover{
+    background:rgba(255,255,255,.28);
+}
+@keyframes zoomIn{
+    from{transform:scale(.82);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
+
 /* =====================================================
    PRECIO
 ===================================================== */
@@ -990,6 +1048,12 @@ footer{
         </button>
     </div>
 </header>
+<!-- ZOOM DE IMAGEN -->
+<div class="image-zoom-overlay" id="imageZoom" onclick="closeImageZoom(event)">
+    <button class="zoom-close" type="button" aria-label="Cerrar zoom" onclick="closeImageZoom(event)">×</button>
+    <img id="zoomImage" src="" alt="Camiseta ampliada">
+</div>
+
 <!-- =====================================================
      HERO
 ===================================================== -->
@@ -1029,7 +1093,7 @@ footer{
              PRODUCTO
         ================================================== -->
         <div class="card">
-            <div class="product-image">
+            <div class="product-image" onclick="openImageZoom()" title="Haz clic para ampliar">
                 <img
                     id="productImage"
                     src="./assets/camisetas.png"
@@ -1741,6 +1805,31 @@ function submitOrder(event){
             "smooth"
     });
 }
+
+/* =====================================================
+   ZOOM DE IMAGEN
+===================================================== */
+function openImageZoom(){
+    const productImage = document.getElementById("productImage");
+    const zoomOverlay = document.getElementById("imageZoom");
+    const zoomImage = document.getElementById("zoomImage");
+
+    zoomImage.src = productImage.src;
+    zoomImage.alt = productImage.alt;
+    zoomOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+function closeImageZoom(event){
+    if(event && event.target && event.target.id === "zoomImage") return;
+    document.getElementById("imageZoom").classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+document.addEventListener("keydown", function(event){
+    if(event.key === "Escape") closeImageZoom();
+});
+
 /* =====================================================
    INICIO
 ===================================================== */
