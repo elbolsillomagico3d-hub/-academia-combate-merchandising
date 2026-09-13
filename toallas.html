@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Toallas oficiales de la Academia de Combate. Toalla de microfibra de 70x120 cm en color gris oscuro con personalización."
+  >
+
+  <title>Toallas | Academia de Combate</title>
+
+  <link rel="icon" type="image/png" href="./assets/logo.PNG">
+
+  <style>
+    :root{
+      --green:#173b00;
+      --green-dark:#0d2500;
+      --green-light:#2f650d;
+      --cream:#f7f6f0;
+      --white:#ffffff;
+      --text:#20251d;
+      --muted:#687062;
+      --line:#dfe3d8;
+      --shadow:0 18px 45px rgba(20,40,10,.12);
+      --radius:18px;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--cream);
+      color:var(--text);
+      line-height:1.5;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    button,
+    input,
+    textarea{
+      font:inherit;
+    }
+
+    button{
+      cursor:pointer;
+    }
+
+    .container{
+      width:min(1180px, calc(100% - 32px));
+      margin:auto;
+    }
+
+    /* HEADER */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:linear-gradient(135deg,var(--green-dark),var(--green));
+      color:white;
+      box-shadow:0 6px 20px rgba(0,0,0,.15);
+    }
+
+    .header-inner{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:white;
+      text-decoration:none;
+    }
+
+    .brand img{
+      width:48px;
+      height:48px;
+      object-fit:contain;
+    }
+
+    .brand-text strong{
+      display:block;
+      font-size:16px;
+      letter-spacing:.5px;
+    }
+
+    .brand-text span{
+      display:block;
+      font-size:12px;
+      opacity:.8;
+    }
+
+    .cart-button{
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(255,255,255,.1);
+      color:white;
+      border-radius:999px;
+      padding:10px 16px;
+      font-weight:700;
+    }
+
+    .cart-button:hover{
+      background:rgba(255,255,255,.18);
+    }
+
+    /* NAV */
+
+    .category-nav{
+      background:#102900;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    .category-nav-inner{
+      display:flex;
+      gap:8px;
+      overflow-x:auto;
+      padding:10px 0;
+      scrollbar-width:none;
+    }
+
+    .category-nav-inner::-webkit-scrollbar{
+      display:none;
+    }
+
+    .category-nav a{
+      color:white;
+      text-decoration:none;
+      padding:8px 13px;
+      border-radius:999px;
+      white-space:nowrap;
+      font-size:13px;
+      opacity:.85;
+    }
+
+    .category-nav a:hover,
+    .category-nav a.active{
+      background:white;
+      color:var(--green);
+      opacity:1;
+    }
+
+    /* HERO */
+
+    .hero{
+      padding:70px 0 45px;
+      background:
+        radial-gradient(circle at top right, rgba(47,101,13,.13), transparent 35%),
+        var(--cream);
+    }
+
+    .hero-content{
+      max-width:850px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      background:#e3eadc;
+      color:var(--green);
+      padding:7px 13px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      margin-bottom:15px;
+    }
+
+    h1{
+      margin:0 0 14px;
+      color:var(--green);
+      font-size:clamp(36px,6vw,64px);
+      line-height:1;
+      letter-spacing:-2px;
+    }
+
+    .hero p{
+      margin:0 auto 22px;
+      max-width:700px;
+      color:var(--muted);
+      font-size:18px;
+    }
+
+    .badges{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:9px;
+    }
+
+    .badge{
+      padding:8px 12px;
+      border:1px solid var(--line);
+      background:white;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    /* PRODUCT */
+
+    .product-section{
+      padding:30px 0 70px;
+    }
+
+    .product-card{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:45px;
+      align-items:start;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .product-image-wrap{
+      position:relative;
+      border-radius:16px;
+      background:#f4f5ef;
+      min-height:520px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+
+    .product-image{
+      width:100%;
+      height:520px;
+      object-fit:contain;
+      cursor:zoom-in;
+      padding:25px;
+    }
+
+    .image-hint{
+      position:absolute;
+      bottom:14px;
+      left:50%;
+      transform:translateX(-50%);
+      background:rgba(23,59,0,.9);
+      color:white;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:12px;
+      pointer-events:none;
+    }
+
+    .product-info h2{
+      margin:0 0 10px;
+      color:var(--green);
+      font-size:32px;
+    }
+
+    .product-description{
+      color:var(--muted);
+      margin:0 0 24px;
+    }
+
+    /* FEATURES */
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-bottom:25px;
+    }
+
+    .feature{
+      border:1px solid var(--line);
+      background:#fafbf7;
+      border-radius:14px;
+      padding:14px;
+    }
+
+    .feature strong{
+      display:block;
+      color:var(--green);
+      margin-bottom:4px;
+      font-size:14px;
+    }
+
+    .feature span{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* PRICE */
+
+    .price-box{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:18px 0;
+      margin-bottom:22px;
+    }
+
+    .price{
+      color:var(--green);
+      font-size:36px;
+      font-weight:900;
+    }
+
+    .price-note{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* FIELDS */
+
+    .field{
+      margin-bottom:18px;
+    }
+
+    .field label{
+      display:block;
+      margin-bottom:7px;
+      font-weight:800;
+      font-size:14px;
+    }
+
+    .field input,
+    .field textarea{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px 13px;
+      outline:none;
+      background:white;
+      color:var(--text);
+    }
+
+    .field input:focus,
+    .field textarea:focus{
+      border-color:var(--green-light);
+      box-shadow:0 0 0 3px rgba(47,101,13,.1);
+    }
+
+    textarea{
+      resize:vertical;
+      min-height:95px;
+    }
+
+    .help-text{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      margin-top:6px;
+    }
+
+    /* QUANTITY */
+
+    .quantity-row{
+      display:flex;
+      gap:12px;
+      align-items:end;
+    }
+
+    .quantity-field{
+      width:120px;
+    }
+
+    .add-button{
+      flex:1;
+      min-height:48px;
+      border:0;
+      border-radius:12px;
+      background:var(--green);
+      color:white;
+      font-weight:900;
+      padding:12px 18px;
+    }
+
+    .add-button:hover{
+      background:var(--green-light);
+    }
+
+    /* TECHNICAL */
+
+    .technical-section{
+      padding:0 0 70px;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:25px;
+    }
+
+    .section-title h2{
+      color:var(--green);
+      font-size:32px;
+      margin:0 0 8px;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      margin:0;
+    }
+
+    .technical-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+    }
+
+    .technical-card{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px;
+    }
+
+    .technical-card h3{
+      margin:0 0 7px;
+      color:var(--green);
+      font-size:17px;
+    }
+
+    .technical-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* SHIPPING */
+
+    .shipping-section{
+      padding:0 0 70px;
+    }
+
+    .shipping-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+    }
+
+    .shipping-card{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px;
+      text-align:center;
+    }
+
+    .shipping-card strong{
+      display:block;
+      color:var(--green);
+      margin-bottom:6px;
+    }
+
+    .shipping-card span{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* ORDER */
+
+    .order-section{
+      padding:0 0 70px;
+    }
+
+    .order-card{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .form-grid .full{
+      grid-column:1 / -1;
+    }
+
+    .submit-button{
+      width:100%;
+      border:0;
+      border-radius:12px;
+      background:var(--green);
+      color:white;
+      padding:15px;
+      font-weight:900;
+      font-size:16px;
+    }
+
+    .submit-button:hover{
+      background:var(--green-light);
+    }
+
+    /* PAYMENT */
+
+    .payment-box{
+      margin-top:25px;
+      padding:20px;
+      background:#f3f6ed;
+      border:1px solid #dbe4d0;
+      border-radius:14px;
+    }
+
+    .payment-box h3{
+      margin:0 0 10px;
+      color:var(--green);
+    }
+
+    .payment-box p{
+      margin:7px 0;
+      color:var(--muted);
+    }
+
+    .payment-box strong{
+      color:var(--text);
+    }
+
+    .success-message{
+      display:none;
+      margin-top:20px;
+      padding:16px;
+      border-radius:12px;
+      background:#e7f3df;
+      border:1px solid #c9dfbd;
+      color:var(--green);
+      font-weight:700;
+    }
+
+    /* CART */
+
+    .cart-section{
+      padding:0 0 70px;
+    }
+
+    .cart-card{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:25px;
+    }
+
+    .cart-card h2{
+      margin-top:0;
+      color:var(--green);
+    }
+
+    .cart-empty{
+      color:var(--muted);
+    }
+
+    .cart-item{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:15px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .cart-item:last-child{
+      border-bottom:0;
+    }
+
+    .cart-item-info strong{
+      display:block;
+      color:var(--green);
+      margin-bottom:4px;
+    }
+
+    .cart-item-info span{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .cart-item-right{
+      text-align:right;
+      white-space:nowrap;
+    }
+
+    .cart-item-right strong{
+      display:block;
+      margin-bottom:5px;
+    }
+
+    .remove-button{
+      border:0;
+      background:none;
+      color:#9a2b2b;
+      font-size:12px;
+      padding:0;
+    }
+
+    .cart-total{
+      display:flex;
+      justify-content:space-between;
+      margin-top:18px;
+      padding-top:18px;
+      border-top:2px solid var(--green);
+      font-size:20px;
+      font-weight:900;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:var(--green-dark);
+      color:white;
+      padding:30px 0;
+      text-align:center;
+    }
+
+    footer p{
+      margin:4px 0;
+      opacity:.8;
+      font-size:13px;
+    }
+
+    /* ZOOM */
+
+    .zoom-overlay{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:100;
+      background:rgba(0,0,0,.85);
+      align-items:center;
+      justify-content:center;
+      padding:25px;
+    }
+
+    .zoom-overlay.active{
+      display:flex;
+    }
+
+    .zoom-overlay img{
+      max-width:95vw;
+      max-height:90vh;
+      object-fit:contain;
+      background:white;
+      border-radius:12px;
+    }
+
+    .zoom-close{
+      position:absolute;
+      top:20px;
+      right:25px;
+      width:45px;
+      height:45px;
+      border:0;
+      border-radius:50%;
+      background:white;
+      color:var(--green);
+      font-size:25px;
+      font-weight:900;
+    }
+
+    /* IMAGE ERROR */
+
+    .image-error{
+      display:none;
+      text-align:center;
+      padding:30px;
+      color:var(--muted);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:850px){
+
+      .product-card{
+        grid-template-columns:1fr;
+      }
+
+      .product-image-wrap{
+        min-height:400px;
+      }
+
+      .product-image{
+        height:400px;
+      }
+
+      .technical-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .shipping-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:600px){
+
+      .container{
+        width:min(100% - 22px,1180px);
+      }
+
+      .header-inner{
+        min-height:68px;
+      }
+
+      .brand-text strong{
+        font-size:13px;
+      }
+
+      .brand-text span{
+        font-size:10px;
+      }
+
+      .cart-button{
+        padding:8px 12px;
+        font-size:12px;
+      }
+
+      .hero{
+        padding:50px 0 30px;
+      }
+
+      h1{
+        font-size:42px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .product-card{
+        padding:16px;
+        gap:25px;
+      }
+
+      .product-image-wrap{
+        min-height:340px;
+      }
+
+      .product-image{
+        height:340px;
+        padding:15px;
+      }
+
+      .product-info h2{
+        font-size:27px;
+      }
+
+      .feature-grid{
+        grid-template-columns:1fr;
+      }
+
+      .technical-grid{
+        grid-template-columns:1fr;
+      }
+
+      .form-grid{
+        grid-template-columns:1fr;
+      }
+
+      .form-grid .full{
+        grid-column:auto;
+      }
+
+      .quantity-row{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .quantity-field{
+        width:100%;
+      }
+
+      .cart-item{
+        flex-direction:column;
+      }
+
+      .cart-item-right{
+        text-align:left;
+      }
+
+      .order-card{
+        padding:20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="container header-inner">
+
+    <a href="index.html" class="brand">
+
+      <img
+        src="./assets/logo.PNG"
+        alt="Academia de Combate"
+      >
+
+      <div class="brand-text">
+
+        <strong>
+          ACADEMIA DE COMBATE
+        </strong>
+
+        <span>
+          Merchandising Oficial
+        </span>
+
+      </div>
+
+    </a>
+
+
+    <button
+      class="cart-button"
+      onclick="document.getElementById('carrito').scrollIntoView({behavior:'smooth'})"
+    >
+      🛒 Carrito (<span id="cartCount">0</span>)
+    </button>
+
+  </div>
+
+
+  <nav class="category-nav">
+
+    <div class="container category-nav-inner">
+
+      <a href="index.html">
+        Inicio
+      </a>
+
+      <a href="camisetas.html">
+        Camisetas
+      </a>
+
+      <a href="sudaderas.html">
+        Sudaderas
+      </a>
+
+      <a href="tazas.html">
+        Tazas
+      </a>
+
+      <a href="botellas.html">
+        Botellas
+      </a>
+
+      <a href="toallas.html" class="active">
+        Toallas
+      </a>
+
+    </div>
+
+  </nav>
+
+</header>
+
+
+<main>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container hero-content">
+
+      <span class="eyebrow">
+        Merchandising oficial
+      </span>
+
+
+      <h1>
+        TOALLAS
+      </h1>
+
+
+      <p>
+        Toalla oficial de la Academia de Combate,
+        fabricada en microfibra, con unas dimensiones de
+        70 × 120 cm y disponible en color gris oscuro.
+        Personalízala con tu nombre o rango.
+      </p>
+
+
+      <div class="badges">
+
+        <span class="badge">
+          Diseño oficial
+        </span>
+
+        <span class="badge">
+          Microfibra
+        </span>
+
+        <span class="badge">
+          70 × 120 cm
+        </span>
+
+        <span class="badge">
+          Gris oscuro
+        </span>
+
+        <span class="badge">
+          Texto personalizado
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTO -->
+
+  <section class="product-section">
+
+    <div class="container">
+
+      <div class="product-card">
+
+
+        <!-- IMAGEN -->
+
+        <div class="product-image-wrap">
+
+          <img
+            id="productImage"
+            class="product-image"
+            src="./assets/toalla.png"
+            alt="Toalla Academia de Combate"
+            onclick="openZoom()"
+            onerror="imageError()"
+          >
+
+
+          <div
+            id="imageError"
+            class="image-error"
+          >
+            No se ha podido cargar la imagen.<br>
+            Comprueba que existe:<br>
+
+            <strong>
+              ./assets/toalla.png
+            </strong>
+          </div>
+
+
+          <div class="image-hint">
+            🔍 Pulsa para ampliar
+          </div>
+
+        </div>
+
+
+        <!-- INFORMACIÓN -->
+
+        <div class="product-info">
+
+          <h2>
+            Toalla Academia
+          </h2>
+
+
+          <p class="product-description">
+
+            Toalla oficial de la Academia de Combate
+            fabricada en microfibra, con un tamaño de
+            70 × 120 cm y color gris oscuro.
+
+            Una opción práctica para llevar al
+            entrenamiento, gimnasio o actividades deportivas.
+
+          </p>
+
+
+          <!-- CARACTERÍSTICAS -->
+
+          <div class="feature-grid">
+
+
+            <div class="feature">
+
+              <strong>
+                🧵 Material
+              </strong>
+
+              <span>
+                Microfibra
+              </span>
+
+            </div>
+
+
+            <div class="feature">
+
+              <strong>
+                📏 Dimensiones
+              </strong>
+
+              <span>
+                70 × 120 cm
+              </span>
+
+            </div>
+
+
+            <div class="feature">
+
+              <strong>
+                🎨 Color
+              </strong>
+
+              <span>
+                Gris oscuro
+              </span>
+
+            </div>
+
+
+            <div class="feature">
+
+              <strong>
+                ✍️ Personalización
+              </strong>
+
+              <span>
+                Nombre o rango
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- PRECIO -->
+
+          <div class="price-box">
+
+            <div class="price">
+              14,90 €
+            </div>
+
+            <div class="price-note">
+              Precio de prueba · IVA incluido
+            </div>
+
+          </div>
+
+
+          <!-- DISEÑO -->
+
+          <div class="field">
+
+            <label>
+              Diseño
+            </label>
+
+            <input
+              type="text"
+              value="Logo Academia"
+              disabled
+            >
+
+            <span class="help-text">
+              Diseño único con el logo oficial de la Academia.
+            </span>
+
+          </div>
+
+
+          <!-- PERSONALIZACIÓN -->
+
+          <div class="field">
+
+            <label for="customText">
+              Texto personalizado
+            </label>
+
+
+            <textarea
+              id="customText"
+              maxlength="80"
+              placeholder="Escribe aquí el nombre, rango o texto personalizado..."
+            ></textarea>
+
+
+            <span class="help-text">
+
+              Ejemplos:
+              Carlos · Cabo García · Juan Pérez · Instructor
+
+            </span>
+
+          </div>
+
+
+          <!-- CANTIDAD -->
+
+          <div class="quantity-row">
+
+            <div class="field quantity-field">
+
+              <label for="quantity">
+                Cantidad
+              </label>
+
+              <input
+                type="number"
+                id="quantity"
+                min="1"
+                max="20"
+                value="1"
+              >
+
+            </div>
+
+
+            <button
+              class="add-button"
+              onclick="addToalla()"
+            >
+              Añadir al carrito
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CARACTERÍSTICAS TÉCNICAS -->
+
+  <section class="technical-section">
+
+    <div class="container">
+
+
+      <div class="section-title">
+
+        <h2>
+          Características técnicas
+        </h2>
+
+        <p>
+          Información del modelo de toalla
+        </p>
+
+      </div>
+
+
+      <div class="technical-grid">
+
+
+        <div class="technical-card">
+
+          <h3>
+            Material
+          </h3>
+
+          <p>
+            Fabricada en microfibra, un material ligero
+            y práctico para utilizar durante actividades
+            deportivas y entrenamientos.
+          </p>
+
+        </div>
+
+
+        <div class="technical-card">
+
+          <h3>
+            Dimensiones
+          </h3>
+
+          <p>
+            70 × 120 cm, un formato amplio pensado para
+            entrenamiento, gimnasio y actividades deportivas.
+          </p>
+
+        </div>
+
+
+        <div class="technical-card">
+
+          <h3>
+            Color
+          </h3>
+
+          <p>
+            Gris oscuro.
+          </p>
+
+        </div>
+
+
+        <div class="technical-card">
+
+          <h3>
+            Diseño
+          </h3>
+
+          <p>
+            Diseño oficial de la Academia de Combate.
+          </p>
+
+        </div>
+
+
+        <div class="technical-card">
+
+          <h3>
+            Personalización
+          </h3>
+
+          <p>
+            Puedes indicar un nombre, rango o texto
+            personalizado para identificar tu toalla.
+          </p>
+
+        </div>
+
+
+        <div class="technical-card">
+
+          <h3>
+            Uso recomendado
+          </h3>
+
+          <p>
+            Ideal para entrenamientos, gimnasio,
+            actividades deportivas y uso diario.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ENVÍOS -->
+
+  <section class="shipping-section">
+
+    <div class="container">
+
+
+      <div class="section-title">
+
+        <h2>
+          Envíos
+        </h2>
+
+        <p>
+          Precios de prueba para configurar la tienda
+        </p>
+
+      </div>
+
+
+      <div class="shipping-grid">
+
+
+        <div class="shipping-card">
+
+          <strong>
+            Península
+          </strong>
+
+          <span>
+            14,90 €
+          </span>
+
+        </div>
+
+
+        <div class="shipping-card">
+
+          <strong>
+            Baleares
+          </strong>
+
+          <span>
+            18,90 €
+          </span>
+
+        </div>
+
+
+        <div class="shipping-card">
+
+          <strong>
+            Canarias
+          </strong>
+
+          <span>
+            19,90 €
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CARRITO -->
+
+  <section
+    class="cart-section"
+    id="carrito"
+  >
+
+    <div class="container">
+
+      <div class="cart-card">
+
+        <h2>
+          🛒 Tu carrito
+        </h2>
+
+
+        <div id="cartItems">
+
+          <p class="cart-empty">
+            Todavía no has añadido ninguna toalla.
+          </p>
+
+        </div>
+
+
+        <div
+          id="cartTotal"
+          class="cart-total"
+          style="display:none;"
+        >
+
+          <span>
+            Total
+          </span>
+
+          <span id="totalAmount">
+            0,00 €
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PEDIDO -->
+
+  <section class="order-section">
+
+    <div class="container">
+
+
+      <div class="section-title">
+
+        <h2>
+          Realizar pedido
+        </h2>
+
+        <p>
+          Completa tus datos para preparar el pedido
+        </p>
+
+      </div>
+
+
+      <div class="order-card">
+
+
+        <form id="orderForm">
+
+
+          <div class="form-grid">
+
+
+            <div class="field">
+
+              <label for="name">
+                Nombre y apellidos *
+              </label>
+
+              <input
+                type="text"
+                id="name"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="phone">
+                Teléfono *
+              </label>
+
+              <input
+                type="tel"
+                id="phone"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="email">
+                Correo electrónico *
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="postal">
+                Código postal *
+              </label>
+
+              <input
+                type="text"
+                id="postal"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="city">
+                Localidad *
+              </label>
+
+              <input
+                type="text"
+                id="city"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="address">
+                Dirección *
+              </label>
+
+              <input
+                type="text"
+                id="address"
+                required
+              >
+
+            </div>
+
+
+            <div class="field full">
+
+              <label for="notes">
+                Observaciones
+              </label>
+
+              <textarea
+                id="notes"
+                placeholder="Cualquier indicación adicional para el pedido..."
+              ></textarea>
+
+            </div>
+
+
+            <div class="field full">
+
+              <button
+                type="submit"
+                class="submit-button"
+              >
+                Confirmar pedido
+              </button>
+
+            </div>
+
+          </div>
+
+        </form>
+
+
+        <!-- PAGO -->
+
+        <div class="payment-box">
+
+          <h3>
+            💳 Forma de pago
+          </h3>
+
+
+          <p>
+            <strong>
+              Bizum:
+            </strong>
+
+            [TU NÚMERO BIZUM]
+          </p>
+
+
+          <p>
+            <strong>
+              Transferencia bancaria:
+            </strong>
+
+            [TU IBAN]
+          </p>
+
+
+          <p>
+            Una vez realizado el pago, envía el justificante
+            al coordinador de la Academia.
+          </p>
+
+        </div>
+
+
+        <div
+          id="successMessage"
+          class="success-message"
+        >
+
+          Pedido preparado correctamente.
+          Recuerda realizar el pago mediante Bizum o transferencia
+          y enviar el justificante al coordinador.
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="container">
+
+    <p>
+      Academia de Combate · Merchandising Oficial
+    </p>
+
+    <p>
+      Todos los precios mostrados actualmente son de prueba.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<!-- ZOOM -->
+
+<div
+  id="zoomOverlay"
+  class="zoom-overlay"
+  onclick="closeZoom(event)"
+>
+
+  <button
+    class="zoom-close"
+    onclick="closeZoom(event)"
+    aria-label="Cerrar"
+  >
+    ×
+  </button>
+
+
+  <img
+    id="zoomImage"
+    src="./assets/toalla.png"
+    alt="Toalla Academia ampliada"
+  >
+
+</div>
+
+
+<script>
+
+  const CART_KEY = "academiaCombateCart";
+
+  const TOALLA_PRICE = 14.90;
+
+
+  /* =========================
+     CARRITO
+  ========================= */
+
+  function getCart(){
+
+    try{
+
+      return JSON.parse(
+        localStorage.getItem(CART_KEY)
+      ) || [];
+
+    }catch(error){
+
+      return [];
+
+    }
+
+  }
+
+
+  function saveCart(cart){
+
+    localStorage.setItem(
+      CART_KEY,
+      JSON.stringify(cart)
+    );
+
+    renderCart();
+
+  }
+
+
+  function addToalla(){
+
+    const customText =
+      document
+        .getElementById("customText")
+        .value
+        .trim();
+
+
+    const quantity =
+      Math.max(
+        1,
+        Math.min(
+          20,
+          parseInt(
+            document.getElementById("quantity").value,
+            10
+          ) || 1
+        )
+      );
+
+
+    const cart = getCart();
+
+
+    const finalText =
+      customText || "Sin personalización";
+
+
+    /*
+      Si ya existe una toalla con el mismo
+      texto personalizado, sumamos cantidades.
+    */
+
+    const existingItem =
+      cart.find(item =>
+        item.product === "toallas" &&
+        item.customText === finalText
+      );
+
+
+    if(existingItem){
+
+      existingItem.quantity += quantity;
+
+
+      if(existingItem.quantity > 20){
+
+        existingItem.quantity = 20;
+
+      }
+
+    }else{
+
+      cart.push({
+
+        id:
+          "toalla-" +
+          Date.now(),
+
+        product:
+          "toallas",
+
+        productName:
+          "Toalla Academia",
+
+        color:
+          "Gris oscuro",
+
+        customText:
+          finalText,
+
+        quantity:
+          quantity,
+
+        price:
+          TOALLA_PRICE
+
+      });
+
+    }
+
+
+    saveCart(cart);
+
+
+    document
+      .getElementById("carrito")
+      .scrollIntoView({
+        behavior:"smooth"
+      });
+
+  }
+
+
+  function removeCartItem(id){
+
+    const cart =
+      getCart().filter(
+        item => item.id !== id
+      );
+
+
+    saveCart(cart);
+
+  }
+
+
+  /* =========================
+     MOSTRAR CARRITO
+  ========================= */
+
+  function renderCart(){
+
+    const cart = getCart();
+
+
+    const container =
+      document.getElementById("cartItems");
+
+
+    const cartCount =
+      document.getElementById("cartCount");
+
+
+    const cartTotal =
+      document.getElementById("cartTotal");
+
+
+    const totalAmount =
+      document.getElementById("totalAmount");
+
+
+    const totalUnits =
+      cart.reduce(
+        (sum,item) =>
+          sum + item.quantity,
+        0
+      );
+
+
+    cartCount.textContent =
+      totalUnits;
+
+
+    if(cart.length === 0){
+
+      container.innerHTML = `
+
+        <p class="cart-empty">
+          Todavía no has añadido ninguna toalla.
+        </p>
+
+      `;
+
+
+      cartTotal.style.display =
+        "none";
+
+
+      return;
+
+    }
+
+
+    let total = 0;
+
+
+    container.innerHTML =
+      cart.map(item => {
+
+
+        const subtotal =
+          item.price *
+          item.quantity;
+
+
+        total += subtotal;
+
+
+        return `
+
+          <div class="cart-item">
+
+            <div class="cart-item-info">
+
+              <strong>
+                ${escapeHtml(
+                  item.productName
+                )}
+              </strong>
+
+
+              <span>
+                Color:
+                ${escapeHtml(
+                  item.color ||
+                  "Gris oscuro"
+                )}
+              </span>
+
+
+              <span>
+                Texto personalizado:
+                ${escapeHtml(
+                  item.customText ||
+                  "Sin personalización"
+                )}
+              </span>
+
+
+              <span>
+                Cantidad:
+                ${item.quantity}
+              </span>
+
+            </div>
+
+
+            <div class="cart-item-right">
+
+              <strong>
+                ${formatPrice(
+                  subtotal
+                )}
+              </strong>
+
+
+              <button
+                class="remove-button"
+                onclick="removeCartItem('${item.id}')"
+              >
+                Eliminar
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+      }).join("");
+
+
+    totalAmount.textContent =
+      formatPrice(total);
+
+
+    cartTotal.style.display =
+      "flex";
+
+  }
+
+
+  /* =========================
+     PRECIO
+  ========================= */
+
+  function formatPrice(value){
+
+    return value.toLocaleString(
+      "es-ES",
+      {
+        style:"currency",
+        currency:"EUR"
+      }
+    );
+
+  }
+
+
+  /* =========================
+     ZOOM
+  ========================= */
+
+  function openZoom(){
+
+    document
+      .getElementById("zoomOverlay")
+      .classList.add("active");
+
+  }
+
+
+  function closeZoom(event){
+
+    if(
+      event &&
+      event.target &&
+      event.target.id === "zoomImage"
+    ){
+
+      return;
+
+    }
+
+
+    document
+      .getElementById("zoomOverlay")
+      .classList.remove("active");
+
+  }
+
+
+  /* =========================
+     ERROR IMAGEN
+  ========================= */
+
+  function imageError(){
+
+    document
+      .getElementById("productImage")
+      .style.display =
+      "none";
+
+
+    document
+      .getElementById("imageError")
+      .style.display =
+      "block";
+
+  }
+
+
+  /* =========================
+     FORMULARIO
+  ========================= */
+
+  document
+    .getElementById("orderForm")
+    .addEventListener(
+      "submit",
+      function(event){
+
+        event.preventDefault();
+
+
+        const cart =
+          getCart();
+
+
+        if(cart.length === 0){
+
+          alert(
+            "Añade al menos una toalla al carrito antes de realizar el pedido."
+          );
+
+
+          document
+            .getElementById("carrito")
+            .scrollIntoView({
+              behavior:"smooth"
+            });
+
+
+          return;
+
+        }
+
+
+        document
+          .getElementById("successMessage")
+          .style.display =
+          "block";
+
+
+        this.reset();
+
+
+        window.scrollTo({
+
+          top:
+            document
+              .getElementById(
+                "successMessage"
+              )
+              .getBoundingClientRect()
+              .top +
+            window.scrollY -
+            120,
+
+          behavior:"smooth"
+
+        });
+
+      }
+    );
+
+
+  /* =========================
+     SEGURIDAD HTML
+  ========================= */
+
+  function escapeHtml(value){
+
+    return String(value)
+
+      .replace(
+        /&/g,
+        "&amp;"
+      )
+
+      .replace(
+        /</g,
+        "&lt;"
+      )
+
+      .replace(
+        />/g,
+        "&gt;"
+      )
+
+      .replace(
+        /"/g,
+        "&quot;"
+      )
+
+      .replace(
+        /'/g,
+        "&#039;"
+      );
+
+  }
+
+
+  /* =========================
+     INICIO
+  ========================= */
+
+  renderCart();
+
+</script>
+
+</body>
+</html>
