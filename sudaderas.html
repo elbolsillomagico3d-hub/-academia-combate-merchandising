@@ -89,7 +89,22 @@ header nav{background:#102900;border-top:1px solid rgba(255,255,255,.08)}
 
 /* TIENDA */
 main{max-width:1200px;margin:auto;padding:35px 20px 70px}
-.shop-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:25px;align-items:start}
+.shop-grid{display:block}
+.product-block{
+  margin-bottom:55px;padding:30px;
+  background:#f1f4ed;border:1px solid var(--line);border-radius:30px
+}
+.product-block-title{text-align:center;margin-bottom:25px}
+.product-block-title span{
+  display:inline-block;padding:7px 13px;border-radius:999px;
+  background:#dfead8;color:var(--green);font-size:12px;
+  font-weight:900;letter-spacing:1px;margin-bottom:8px
+}
+.product-block-title h2{color:var(--green);font-size:34px;margin-bottom:5px}
+.product-block-title p{color:var(--muted)}
+.product-layout{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:25px;align-items:start
+}
 .card{
   background:white;border:1px solid var(--line);border-radius:26px;
   box-shadow:var(--shadow);overflow:hidden
@@ -249,7 +264,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 45p
 }
 
 @media(max-width:850px){
-  .shop-grid{grid-template-columns:1fr}
+  .product-layout{grid-template-columns:1fr}
+  .product-block{padding:18px}
 }
 @media(max-width:700px){
   .header-inner{padding:9px 14px}
@@ -318,81 +334,130 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 45p
 </section>
 
 <main>
-  <div class="shop-grid">
-    <div class="card">
-      <div class="product-image">
-        <button class="carousel-arrow carousel-prev" onclick="changeSlide(-1)" aria-label="Foto anterior">‹</button>
-        <div class="carousel-stage">
-          <img id="productImage" src="./assets/sudadera1.png" alt="Sudadera Academia" onclick="openZoom()">
-        </div>
-        <button class="carousel-arrow carousel-next" onclick="changeSlide(1)" aria-label="Foto siguiente">›</button>
-        <div class="carousel-dots" id="carouselDots"></div>
-        <div class="zoom-hint">🔍 Pulsa para ampliar</div>
-      </div>
+  <!-- BLOQUE 1: NEW CONCEPT -->
+  <section class="product-block">
+    <div class="product-block-title">
+      <span>MODELO 01</span>
+      <h2>New Concept</h2>
+      <p>Sudadera oficial New Concept de la Academia de Combate.</p>
     </div>
 
-    <div class="card">
-      <div class="product-content">
-        <h2 id="productTitle">New Concept</h2>
-        <p class="product-description" id="productDescription">
-          Sudadera oficial New Concept de la Academia de Combate.
-        </p>
-
-        <div class="price-box">
-          <div class="price-label">Precio</div>
-          <div class="price">34,90 €</div>
-          <div class="free-shipping">✓ Envío gratuito · IVA incluido</div>
+    <div class="product-layout">
+      <div class="card">
+        <div class="product-image">
+          <button class="carousel-arrow new-prev" onclick="changeNewSlide(-1)" aria-label="Foto anterior">‹</button>
+          <div class="carousel-stage">
+            <img id="newProductImage" src="./assets/sudaderacapuchanegra.png" alt="Sudadera New Concept" onclick="openZoom('new')">
+          </div>
+          <button class="carousel-arrow new-next" onclick="changeNewSlide(1)" aria-label="Foto siguiente">›</button>
+          <div class="carousel-dots" id="newCarouselDots"></div>
+          <div class="zoom-hint">🔍 Pulsa para ampliar</div>
         </div>
+      </div>
 
-        <div class="section-title">Modelo</div>
-        <div class="option-grid">
-          <button class="option-btn active" onclick="chooseModel(this,'new')">New Concept</button>
-          <button class="option-btn" onclick="chooseModel(this,'nunca')">Nunca Caminarás Solo</button>
-        </div>
+      <div class="card">
+        <div class="product-content">
+          <h2>New Concept</h2>
+          <div class="price-box">
+            <div class="price-label">Precio</div>
+            <div class="price">34,90 €</div>
+            <div class="free-shipping">✓ Envío gratuito · IVA incluido</div>
+          </div>
 
-        <div id="newOptions">
           <div class="section-title">Capucha</div>
           <div class="option-grid">
-            <button class="option-btn active" onclick="chooseHood(this,'con')">Con capucha</button>
-            <button class="option-btn" onclick="chooseHood(this,'sin')">Sin capucha</button>
+            <button class="option-btn active" onclick="chooseNewHood(this,'con')">Con capucha</button>
+            <button class="option-btn" onclick="chooseNewHood(this,'sin')">Sin capucha</button>
           </div>
 
           <div class="section-title">Color</div>
           <div class="option-grid">
-            <button class="option-btn active" onclick="chooseColor(this,'negro')">Negro</button>
-            <button class="option-btn" onclick="chooseColor(this,'verde')">Verde botella</button>
+            <button class="option-btn active" onclick="chooseNewColor(this,'negro')">Negro</button>
+            <button class="option-btn" onclick="chooseNewColor(this,'verde')">Verde botella</button>
           </div>
-        </div>
 
-        <div id="nuncaOptions" style="display:none">
+          <div class="section-title">Talla</div>
+          <div class="size-grid">
+            <button class="size-btn active" onclick="chooseNewSize(this)">S</button>
+            <button class="size-btn" onclick="chooseNewSize(this)">M</button>
+            <button class="size-btn" onclick="chooseNewSize(this)">L</button>
+            <button class="size-btn" onclick="chooseNewSize(this)">XL</button>
+            <button class="size-btn" onclick="chooseNewSize(this)">XXL</button>
+            <button class="size-btn" onclick="chooseNewSize(this)">3XL</button>
+          </div>
+
+          <div class="section-title">Cantidad</div>
+          <div class="quantity">
+            <button onclick="changeNewQty(-1)">−</button>
+            <span id="newQty">1</span>
+            <button onclick="changeNewQty(1)">+</button>
+          </div>
+
+          <button class="add-button" onclick="addNewToCart()">Añadir al carrito</button>
+          <div class="variant-note" id="newVariantNote">New Concept · Con capucha · Negro</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE 2: NUNCA CAMINARÁS SOLO -->
+  <section class="product-block">
+    <div class="product-block-title">
+      <span>MODELO 02</span>
+      <h2>Nunca Caminarás Solo</h2>
+      <p>Sudadera oficial Nunca Caminarás Solo de la Academia de Combate.</p>
+    </div>
+
+    <div class="product-layout">
+      <div class="card">
+        <div class="product-image">
+          <button class="carousel-arrow nunca-prev" onclick="changeNuncaSlide(-1)" aria-label="Foto anterior">‹</button>
+          <div class="carousel-stage">
+            <img id="nuncaProductImage" src="./assets/sudaderanunca.png" alt="Sudadera Nunca Caminarás Solo" onclick="openZoom('nunca')">
+          </div>
+          <button class="carousel-arrow nunca-next" onclick="changeNuncaSlide(1)" aria-label="Foto siguiente">›</button>
+          <div class="carousel-dots" id="nuncaCarouselDots"></div>
+          <div class="zoom-hint">🔍 Pulsa para ampliar</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="product-content">
+          <h2>Nunca Caminarás Solo</h2>
+          <div class="price-box">
+            <div class="price-label">Precio</div>
+            <div class="price">34,90 €</div>
+            <div class="free-shipping">✓ Envío gratuito · IVA incluido</div>
+          </div>
+
           <div class="section-title">Color</div>
           <div class="option-grid">
             <button class="option-btn active">Verde botella</button>
           </div>
-        </div>
 
-        <div class="section-title">Talla</div>
-        <div class="size-grid">
-          <button class="size-btn active" onclick="chooseSize(this)">S</button>
-          <button class="size-btn" onclick="chooseSize(this)">M</button>
-          <button class="size-btn" onclick="chooseSize(this)">L</button>
-          <button class="size-btn" onclick="chooseSize(this)">XL</button>
-          <button class="size-btn" onclick="chooseSize(this)">XXL</button>
-          <button class="size-btn" onclick="chooseSize(this)">3XL</button>
-        </div>
+          <div class="section-title">Talla</div>
+          <div class="size-grid">
+            <button class="size-btn active" onclick="chooseNuncaSize(this)">S</button>
+            <button class="size-btn" onclick="chooseNuncaSize(this)">M</button>
+            <button class="size-btn" onclick="chooseNuncaSize(this)">L</button>
+            <button class="size-btn" onclick="chooseNuncaSize(this)">XL</button>
+            <button class="size-btn" onclick="chooseNuncaSize(this)">XXL</button>
+            <button class="size-btn" onclick="chooseNuncaSize(this)">3XL</button>
+          </div>
 
-        <div class="section-title">Cantidad</div>
-        <div class="quantity">
-          <button onclick="changeQty(-1)">−</button>
-          <span id="qty">1</span>
-          <button onclick="changeQty(1)">+</button>
-        </div>
+          <div class="section-title">Cantidad</div>
+          <div class="quantity">
+            <button onclick="changeNuncaQty(-1)">−</button>
+            <span id="nuncaQty">1</span>
+            <button onclick="changeNuncaQty(1)">+</button>
+          </div>
 
-        <button class="add-button" onclick="addToCart()">Añadir al carrito</button>
-        <div class="variant-note" id="variantNote">New Concept · Con capucha · Negro</div>
+          <button class="add-button" onclick="addNuncaToCart()">Añadir al carrito</button>
+          <div class="variant-note">Nunca Caminarás Solo · Verde botella</div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <section id="carrito" class="cart-box">
     <h2>🛒 Carrito</h2>
@@ -503,133 +568,133 @@ const CART_KEY="academiaCombateCart";
 const product="Sudaderas";
 const basePrice=34.90;
 
-let model="new";
-let hood="con";
-let color="negro";
-let size="S";
-let qty=1;
-let slideIndex=0;
+let newHood="con", newColor="negro", newSize="S", newQty=1, newSlideIndex=0;
+let nuncaSize="S", nuncaQty=1, nuncaSlideIndex=0;
 
-function getGallery(){
-  if(model==="nunca"){
-    return ["sudaderanunca.png","sudaderanunca1.png"];
-  }
-  if(hood==="con" && color==="negro") return ["sudaderacapuchanegra.png"];
-  if(hood==="con" && color==="verde") return ["sudaderacapuchaverde.png"];
-  if(hood==="sin" && color==="negro") return ["sincapuchanegra.png"];
-  if(hood==="sin" && color==="verde") return ["sincapuchaverde.png"];
+function getNewGallery(){
+  if(newHood==="con" && newColor==="negro") return ["sudaderacapuchanegra.png"];
+  if(newHood==="con" && newColor==="verde") return ["sudaderacapuchaverde.png"];
+  if(newHood==="sin" && newColor==="negro") return ["sincapuchanegra.png"];
+  if(newHood==="sin" && newColor==="verde") return ["sincapuchaverde.png"];
   return ["sudadera1.png","sudadera2.png"];
 }
 
-function updateGallery(){
-  const gallery=getGallery();
-  slideIndex=Math.max(0,Math.min(slideIndex,gallery.length-1));
+function getNuncaGallery(){
+  return ["sudaderanunca.png","sudaderanunca1.png"];
+}
 
-  const img=document.getElementById("productImage");
+function updateNewGallery(){
+  const gallery=getNewGallery();
+  newSlideIndex=Math.max(0,Math.min(newSlideIndex,gallery.length-1));
+  const img=document.getElementById("newProductImage");
   img.style.opacity="0";
-  setTimeout(()=>{
-    img.src="./assets/"+gallery[slideIndex];
-    img.style.opacity="1";
-  },100);
+  setTimeout(()=>{img.src="./assets/"+gallery[newSlideIndex];img.style.opacity="1"},100);
 
-  const dots=document.getElementById("carouselDots");
-  dots.innerHTML=gallery.map((_,i)=>
-    `<button class="carousel-dot ${i===slideIndex?"active":""}" onclick="goToSlide(${i})" aria-label="Foto ${i+1}"></button>`
+  document.getElementById("newCarouselDots").innerHTML=gallery.map((_,i)=>
+    `<button class="carousel-dot ${i===newSlideIndex?"active":""}" onclick="goToNewSlide(${i})" aria-label="Foto ${i+1}"></button>`
   ).join("");
 
-  document.querySelector(".carousel-prev").style.display=gallery.length>1?"block":"none";
-  document.querySelector(".carousel-next").style.display=gallery.length>1?"block":"none";
+  document.querySelector(".new-prev").style.display=gallery.length>1?"block":"none";
+  document.querySelector(".new-next").style.display=gallery.length>1?"block":"none";
 }
 
-function changeSlide(direction){
-  const gallery=getGallery();
+function updateNuncaGallery(){
+  const gallery=getNuncaGallery();
+  nuncaSlideIndex=Math.max(0,Math.min(nuncaSlideIndex,gallery.length-1));
+  const img=document.getElementById("nuncaProductImage");
+  img.style.opacity="0";
+  setTimeout(()=>{img.src="./assets/"+gallery[nuncaSlideIndex];img.style.opacity="1"},100);
+
+  document.getElementById("nuncaCarouselDots").innerHTML=gallery.map((_,i)=>
+    `<button class="carousel-dot ${i===nuncaSlideIndex?"active":""}" onclick="goToNuncaSlide(${i})" aria-label="Foto ${i+1}"></button>`
+  ).join("");
+
+  document.querySelector(".nunca-prev").style.display=gallery.length>1?"block":"none";
+  document.querySelector(".nunca-next").style.display=gallery.length>1?"block":"none";
+}
+
+function changeNewSlide(direction){
+  const gallery=getNewGallery();
   if(gallery.length<2)return;
-  slideIndex=(slideIndex+direction+gallery.length)%gallery.length;
-  updateGallery();
+  newSlideIndex=(newSlideIndex+direction+gallery.length)%gallery.length;
+  updateNewGallery();
 }
 
-function goToSlide(index){
-  slideIndex=index;
-  updateGallery();
+function goToNewSlide(index){newSlideIndex=index;updateNewGallery()}
+
+function changeNuncaSlide(direction){
+  const gallery=getNuncaGallery();
+  if(gallery.length<2)return;
+  nuncaSlideIndex=(nuncaSlideIndex+direction+gallery.length)%gallery.length;
+  updateNuncaGallery();
 }
 
-function chooseModel(btn,value){
-  document.querySelectorAll("#newOptions .option-btn,#nuncaOptions .option-btn").forEach(b=>b.classList.remove("active"));
-  document.querySelectorAll(".option-grid")[0].querySelectorAll(".option-btn").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
+function goToNuncaSlide(index){nuncaSlideIndex=index;updateNuncaGallery()}
 
-  model=value;
-  slideIndex=0;
-
-  document.getElementById("newOptions").style.display=value==="new"?"block":"none";
-  document.getElementById("nuncaOptions").style.display=value==="nunca"?"block":"none";
-
-  if(value==="nunca"){
-    document.getElementById("productTitle").textContent="Nunca Caminarás Solo";
-    document.getElementById("productDescription").textContent="Sudadera oficial Nunca Caminarás Solo de la Academia de Combate.";
-    document.getElementById("variantNote").textContent="Nunca Caminarás Solo · Verde botella";
-  }else{
-    document.getElementById("productTitle").textContent="New Concept";
-    document.getElementById("productDescription").textContent="Sudadera oficial New Concept de la Academia de Combate.";
-    document.getElementById("variantNote").textContent=variantText();
-  }
-  updateGallery();
+function chooseNewHood(btn,value){
+  btn.parentElement.querySelectorAll(".option-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");newHood=value;newSlideIndex=0;
+  document.getElementById("newVariantNote").textContent=selectedNewVariantName();
+  updateNewGallery();
 }
 
-function chooseHood(btn,value){
-  document.querySelectorAll("#newOptions .section-title")[0].nextElementSibling.querySelectorAll(".option-btn").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
-  hood=value;
-  slideIndex=0;
-  document.getElementById("variantNote").textContent=variantText();
-  updateGallery();
+function chooseNewColor(btn,value){
+  btn.parentElement.querySelectorAll(".option-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");newColor=value;newSlideIndex=0;
+  document.getElementById("newVariantNote").textContent=selectedNewVariantName();
+  updateNewGallery();
 }
 
-function chooseColor(btn,value){
-  const colorTitle=document.querySelectorAll("#newOptions .section-title")[1];
-  colorTitle.nextElementSibling.querySelectorAll(".option-btn").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
-  color=value;
-  slideIndex=0;
-  document.getElementById("variantNote").textContent=variantText();
-  updateGallery();
+function chooseNewSize(btn){
+  btn.parentElement.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");newSize=btn.textContent;
 }
 
-function variantText(){
-  return "New Concept · "+(hood==="con"?"Con capucha":"Sin capucha")+" · "+(color==="negro"?"Negro":"Verde botella");
+function chooseNuncaSize(btn){
+  btn.parentElement.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");nuncaSize=btn.textContent;
 }
 
-function chooseSize(btn){
-  document.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
-  size=btn.textContent;
+function changeNewQty(n){
+  newQty=Math.max(1,Math.min(20,newQty+n));
+  document.getElementById("newQty").textContent=newQty;
 }
 
-function changeQty(n){
-  qty=Math.max(1,Math.min(20,qty+n));
-  document.getElementById("qty").textContent=qty;
+function changeNuncaQty(n){
+  nuncaQty=Math.max(1,Math.min(20,nuncaQty+n));
+  document.getElementById("nuncaQty").textContent=nuncaQty;
 }
 
-function selectedVariantName(){
-  if(model==="nunca") return "Nunca Caminarás Solo · Verde botella";
-  return "New Concept · "+(hood==="con"?"Con capucha":"Sin capucha")+" · "+(color==="negro"?"Negro":"Verde botella");
+function selectedNewVariantName(){
+  return "New Concept · "+(newHood==="con"?"Con capucha":"Sin capucha")+" · "+(newColor==="negro"?"Negro":"Verde botella");
 }
 
-function addToCart(){
+function addNewToCart(){
   let c=getCart();
   c.push({
-    id:Date.now(),
-    category:"sudaderas",
-    product:selectedVariantName(),
-    color:model==="nunca"?"Verde botella":(color==="negro"?"Negro":"Verde botella"),
-    formato:model==="nunca"?"Nunca Caminarás Solo":(hood==="con"?"Con capucha":"Sin capucha"),
-    size:size,
-    quantity:qty,
-    price:basePrice
+    id:Date.now(),category:"sudaderas",product:selectedNewVariantName(),
+    color:newColor==="negro"?"Negro":"Verde botella",
+    formato:newHood==="con"?"Con capucha":"Sin capucha",
+    size:newSize,quantity:newQty,price:basePrice
   });
-  saveCart(c);
-  renderCart();
-  document.getElementById("carrito").scrollIntoView({behavior:"smooth"});
+  saveCart(c);renderCart();document.getElementById("carrito").scrollIntoView({behavior:"smooth"});
+}
+
+function addNuncaToCart(){
+  let c=getCart();
+  c.push({
+    id:Date.now(),category:"sudaderas",
+    product:"Nunca Caminarás Solo · Verde botella",
+    color:"Verde botella",formato:"Nunca Caminarás Solo",
+    size:nuncaSize,quantity:nuncaQty,price:basePrice
+  });
+  saveCart(c);renderCart();document.getElementById("carrito").scrollIntoView({behavior:"smooth"});
+}
+
+function openZoom(modelName){
+  const img=document.getElementById(modelName==="new"?"newProductImage":"nuncaProductImage");
+  document.getElementById("zoomImage").src=img.src;
+  document.getElementById("zoom").classList.add("active");
 }
 
 function getCart(){
@@ -670,12 +735,6 @@ function renderCart(){
     :"<div class='cart-empty'>Todavía no has añadido productos.</div>";
 }
 
-function openZoom(){
-  const img=document.getElementById("productImage");
-  document.getElementById("zoomImage").src=img.src;
-  document.getElementById("zoom").classList.add("active");
-}
-
 function closeZoom(){
   document.getElementById("zoom").classList.remove("active");
 }
@@ -691,11 +750,12 @@ function submitOrder(e){
 
 document.addEventListener("keydown",e=>{
   if(e.key==="Escape")closeZoom();
-  if(e.key==="ArrowLeft")changeSlide(-1);
-  if(e.key==="ArrowRight")changeSlide(1);
+  if(e.key==="ArrowLeft"){changeNewSlide(-1);changeNuncaSlide(-1)}
+  if(e.key==="ArrowRight"){changeNewSlide(1);changeNuncaSlide(1)}
 });
 
-updateGallery();
+updateNewGallery();
+updateNuncaGallery();
 renderCart();
 </script>
 </body>
