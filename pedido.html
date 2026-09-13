@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carrito y pedido · Academia de Combate</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f4f4;color:#171717}header{background:#111;color:#fff;padding:18px 20px}.head{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:800;font-size:20px}.back{color:#fff;text-decoration:none;border:1px solid #555;padding:10px 14px;border-radius:8px}main{max-width:1100px;margin:35px auto;padding:0 18px}h1{font-size:32px;margin:0 0 25px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 3px 15px #00000014}h2{margin-top:0}.cart-item{display:flex;justify-content:space-between;gap:15px;padding:15px 0;border-bottom:1px solid #ddd}.cart-item:last-child{border-bottom:0}.item-name{font-weight:700}.item-meta{font-size:13px;color:#666;margin-top:5px}.item-price{white-space:nowrap;font-weight:700}.qty{display:flex;align-items:center;gap:7px;margin-top:9px}.qty button{width:30px;height:30px;border:1px solid #bbb;background:#fff;border-radius:6px;cursor:pointer}.qty .remove{width:auto;border:0;color:#b00020;background:none;font-size:12px;margin-left:8px}.total{display:flex;justify-content:space-between;font-size:22px;font-weight:800;padding-top:20px;margin-top:10px;border-top:2px solid #111}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.group{display:flex;flex-direction:column;gap:6px}.full{grid-column:1/-1}label{font-weight:700;font-size:14px}input,textarea{padding:12px;border:1px solid #bbb;border-radius:8px;font-size:16px}textarea{min-height:90px}.submit{width:100%;margin-top:20px;padding:15px;border:0;border-radius:9px;background:#111;color:#fff;font-size:17px;font-weight:800;cursor:pointer}.submit:disabled{opacity:.6}.empty{padding:25px 0;color:#666}.notice{background:#f7f7f7;border-left:4px solid #111;padding:14px;margin-top:20px;font-size:14px;line-height:1.5}.success{display:none;background:#eaf7ee;border:1px solid #9bd0aa;padding:20px;border-radius:12px;margin-top:20px;line-height:1.5}@media(max-width:760px){.grid,.form-grid{grid-template-columns:1fr}.full{grid-column:auto}h1{font-size:26px}}
+</style></head><body>
+<header><div class="head"><div class="logo">Academia de Combate</div><a class="back" href="./index.html">← Seguir comprando</a></div></header>
+<main><h1>🛒 Tu carrito y tu pedido</h1><div class="grid">
+<section class="card"><h2>Resumen del carrito</h2><div id="cartItems"></div><div class="total"><span>Total</span><span id="cartTotal">0,00 €</span></div><div class="notice">Añade todos los productos que quieras. Cuando termines, completa tus datos y envía el pedido.</div></section>
+<section class="card"><h2>Tus datos</h2><form id="orderForm"><div class="form-grid">
+<div class="group full"><label>Nombre y apellidos *</label><input name="name" required></div>
+<div class="group"><label>Teléfono *</label><input name="phone" type="tel" required></div>
+<div class="group"><label>Email *</label><input name="email" type="email" required></div>
+<div class="group"><label>Código postal *</label><input name="postal" required></div>
+<div class="group"><label>Ciudad *</label><input name="city" required></div>
+<div class="group full"><label>Dirección *</label><input name="address" required></div>
+<div class="group full"><label>Observaciones</label><textarea name="notes" placeholder="Opcional"></textarea></div>
+</div><button class="submit" id="submitButton">Enviar pedido</button></form>
+<div class="success" id="success"><strong>✓ Pedido enviado correctamente.</strong><br><br>Te hemos enviado la confirmación con los detalles del pedido y las instrucciones de pago. Recuerda enviar el justificante de pago.</div>
+</section></div></main>
+<script>
+const ORDER_https://script.google.com/macros/s/AKfycbzPuiQbKU7ULBDJCqUGUczys2hb6DFBx3SVYS9S01ugV5h9Z9UFND5RL69kHnJMJDw2/exec="https://script.google.com/macros/s/AKfycbzPuiQbKU7ULBDJCqUGUczys2hb6DFBx3SVYS9S01ugV5h9Z9UFND5RL69kHnJMJDw2/exec";
+const CART_KEY="academiaCombateCart";
+function getCart(){try{return JSON.parse(localStorage.getItem(CART_KEY)||"[]")||[]}catch(e){return[]}}
+function saveCart(c){localStorage.setItem(CART_KEY,JSON.stringify(c));render()}
+function money(n){return Number(n||0).toLocaleString("es-ES",{style:"currency",currency:"EUR"})}
+function itemName(x){return x.productName||x.product||"Producto"}
+function itemMeta(x){return [x.color,x.size,x.formato,x.customText].filter(Boolean).join(" · ")}
+function esc(v){return String(v||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function render(){
+ const c=getCart(),box=document.getElementById("cartItems"),total=c.reduce((s,x)=>s+Number(x.price||0)*Number(x.quantity||0),0),b=document.getElementById("submitButton");
+ if(!c.length){box.innerHTML='<div class="empty">Tu carrito está vacío. Vuelve a la tienda para añadir productos.</div>';document.getElementById("cartTotal").textContent="0,00 €";b.disabled=true;return}
+ b.disabled=false;box.innerHTML=c.map((x,i)=>'<div class="cart-item"><div><div class="item-name">'+esc(itemName(x))+'</div><div class="item-meta">'+esc(itemMeta(x))+'</div><div class="qty"><button type="button" onclick="changeQty('+i+',-1)">−</button><b>'+Number(x.quantity||0)+'</b><button type="button" onclick="changeQty('+i+',1)">+</button><button type="button" class="remove" onclick="removeItem('+i+')">Eliminar</button></div></div><div class="item-price">'+money(Number(x.price||0)*Number(x.quantity||0))+'</div></div>').join("");
+ document.getElementById("cartTotal").textContent=money(total);
+}
+function changeQty(i,d){const c=getCart();c[i].quantity=Math.max(1,Number(c[i].quantity||1)+d);saveCart(c)}
+function removeItem(i){const c=getCart();c.splice(i,1);saveCart(c)}
+function sendOrder(customer,cart){
+ const body=JSON.stringify({customer:customer,cart:cart,page:"/pedido.html"});
+ if(navigator.sendBeacon){const blob=new Blob([body],{type:"text/plain;charset=UTF-8"});if(navigator.sendBeacon(ORDER_https://script.google.com/macros/s/AKfycbzPuiQbKU7ULBDJCqUGUczys2hb6DFBx3SVYS9S01ugV5h9Z9UFND5RL69kHnJMJDw2/exec,blob))return}
+ const f=document.createElement("form");f.method="POST";f.action=ORDER_https://script.google.com/macros/s/AKfycbzPuiQbKU7ULBDJCqUGUczys2hb6DFBx3SVYS9S01ugV5h9Z9UFND5RL69kHnJMJDw2/exec;f.target="pedidoFrame";f.style.display="none";const t=document.createElement("textarea");t.name="payload";t.value=body;f.appendChild(t);const fr=document.createElement("iframe");fr.name="pedidoFrame";fr.style.display="none";document.body.appendChild(fr);document.body.appendChild(f);f.submit();setTimeout(()=>{f.remove();fr.remove()},10000)
+}
+document.getElementById("orderForm").addEventListener("submit",function(e){
+ e.preventDefault();const cart=getCart();if(!cart.length){alert("Añade al menos un producto al carrito.");return}if(!this.checkValidity()){this.reportValidity();return}
+ const b=document.getElementById("submitButton");b.disabled=true;b.textContent="Enviando pedido...";
+ const fd=new FormData(this),customer={name:String(fd.get("name")).trim(),phone:String(fd.get("phone")).trim(),email:String(fd.get("email")).trim(),postal:String(fd.get("postal")).trim(),city:String(fd.get("city")).trim(),address:String(fd.get("address")).trim(),notes:String(fd.get("notes")).trim()};
+ try{sendOrder(customer,cart);localStorage.removeItem(CART_KEY);render();this.style.display="none";document.getElementById("success").style.display="block";window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"})}catch(err){console.error(err);alert("No se ha podido enviar el pedido. Inténtalo de nuevo.");b.disabled=false;b.textContent="Enviar pedido"}
+});
+render();
+</script></body></html>
