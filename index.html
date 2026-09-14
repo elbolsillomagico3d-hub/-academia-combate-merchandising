@@ -114,6 +114,18 @@ header{
     font-weight:700;
 }
 
+.cart-count{
+    display:inline-flex;
+    min-width:23px;
+    height:23px;
+    align-items:center;
+    justify-content:center;
+    background:white;
+    color:var(--green);
+    border-radius:50px;
+    margin-left:5px;
+}
+
 /* =========================
    MENÚ
 ========================= */
@@ -304,6 +316,58 @@ nav a:hover{
 }
 
 /* =========================
+   INFORMACIÓN DE ENVÍO
+========================= */
+
+.shipping-info{
+    margin:0 auto 50px;
+    max-width:900px;
+    background:white;
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:22px 25px;
+    box-shadow:var(--shadow);
+    text-align:center;
+}
+
+.shipping-info h3{
+    color:var(--green);
+    font-size:21px;
+    margin-bottom:14px;
+}
+
+.shipping-options{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.shipping-option{
+    background:#f5f8f1;
+    border:1px solid #dce8d3;
+    border-radius:15px;
+    padding:14px 10px;
+}
+
+.shipping-option strong{
+    display:block;
+    color:var(--green);
+    font-size:15px;
+    margin-bottom:3px;
+}
+
+.shipping-option span{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.shipping-note{
+    margin-top:14px;
+    font-size:12px;
+    color:var(--muted);
+}
+
+/* =========================
    OTRAS CATEGORÍAS
 ========================= */
 
@@ -421,6 +485,10 @@ footer p{
         height:390px;
     }
 
+    .shipping-options{
+        grid-template-columns:1fr;
+    }
+
     .categories{
         grid-template-columns:1fr;
     }
@@ -448,9 +516,11 @@ footer p{
 
 <!-- CABECERA -->
 <header>
+
     <div class="header-inner">
 
         <div class="brand">
+
             <div class="brand-logo">
                 <img
                     src="./assets/logo.PNG"
@@ -462,22 +532,34 @@ footer p{
                 <strong>Academia de Combate</strong>
                 <span>Merchandising oficial</span>
             </div>
+
         </div>
 
-        <button class="cart-button" onclick="window.location.href='./pedido.html'">🛒 Carrito <span class="cart-count" id="cartCount">0</span></button>
+        <button
+            class="cart-button"
+            onclick="window.location.href='./pedido.html'"
+        >
+            🛒 Carrito
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
 
     </div>
 
     <nav>
+
         <div class="nav-inner">
+
             <a href="./index.html">Inicio</a>
             <a href="./camisetas.html">Camisetas</a>
             <a href="./sudaderas.html">Sudaderas</a>
             <a href="./tazas.html">Tazas</a>
             <a href="./botellas.html">Botellas</a>
             <a href="./toallas.html">Toallas</a>
+
         </div>
+
     </nav>
+
 </header>
 
 
@@ -504,13 +586,19 @@ footer p{
 </section>
 
 
-<!-- CAMISETAS Y SUDADERAS -->
+<!-- CONTENIDO -->
 <main class="container">
 
     <div class="section-title">
+
         <h2>Camisetas y Sudaderas</h2>
-        <p>Descubre nuestra colección oficial</p>
+
+        <p>
+            Descubre nuestra colección oficial
+        </p>
+
     </div>
+
 
     <div class="feature-grid">
 
@@ -518,12 +606,16 @@ footer p{
         <article class="feature-card">
 
             <a href="./camisetas.html">
+
                 <div class="feature-image">
+
                     <img
                         src="./assets/camisetas.png"
                         alt="Camiseta Academia de Combate"
                     >
+
                 </div>
+
             </a>
 
             <div class="feature-content">
@@ -555,12 +647,16 @@ footer p{
         <article class="feature-card">
 
             <a href="./sudaderas.html">
+
                 <div class="feature-image">
+
                     <img
                         src="./assets/sudaderanunca.png"
                         alt="Sudadera Academia de Combate"
                     >
+
                 </div>
+
             </a>
 
             <div class="feature-content">
@@ -590,16 +686,71 @@ footer p{
     </div>
 
 
+    <!-- INFORMACIÓN DE ENVÍO -->
+    <section class="shipping-info">
+
+        <h3>🚚 Información de envío</h3>
+
+        <div class="shipping-options">
+
+            <div class="shipping-option">
+
+                <strong>🇪🇸 Península</strong>
+
+                <span>
+                    Envío gratis
+                </span>
+
+            </div>
+
+            <div class="shipping-option">
+
+                <strong>🏝️ Baleares</strong>
+
+                <span>
+                    +4,00 € de envío
+                </span>
+
+            </div>
+
+            <div class="shipping-option">
+
+                <strong>🌴 Canarias</strong>
+
+                <span>
+                    +5,00 € de envío
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="shipping-note">
+            El suplemento de envío se calculará automáticamente
+            al introducir el código postal en el pedido.
+        </div>
+
+    </section>
+
+
     <!-- OTRAS CATEGORÍAS -->
+
     <div
         class="section-title"
         id="categorias"
     >
+
         <h2>Más productos</h2>
-        <p>Completa tu equipamiento de la Academia</p>
+
+        <p>
+            Completa tu equipamiento de la Academia
+        </p>
+
     </div>
 
+
     <div class="categories">
+
 
         <!-- TAZAS -->
         <article class="category">
@@ -672,6 +823,7 @@ footer p{
 
         </article>
 
+
     </div>
 
 </main>
@@ -686,5 +838,45 @@ footer p{
 
 </footer>
 
-<script>(function(){const K="academiaCombateCart";function s(){try{const c=JSON.parse(localStorage.getItem(K)||"[]");const n=c.reduce((a,i)=>a+Number(i.quantity||0),0),e=document.getElementById("cartCount");if(e)e.textContent=n}catch(x){}}s();window.addEventListener("storage",s)})();</script></body>
+
+<script>
+
+(function(){
+
+    const K="academiaCombateCart";
+
+    function s(){
+
+        try{
+
+            const c=
+                JSON.parse(
+                    localStorage.getItem(K)||"[]"
+                );
+
+            const n=
+                c.reduce(
+                    (a,i)=>a+Number(i.quantity||0),
+                    0
+                );
+
+            const e=
+                document.getElementById("cartCount");
+
+            if(e)
+                e.textContent=n;
+
+        }catch(x){}
+
+    }
+
+    s();
+
+    window.addEventListener("storage",s);
+
+})();
+
+</script>
+
+</body>
 </html>
